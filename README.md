@@ -2,4 +2,5 @@
 Trabajo Final- compra y venta de entradas de cine
 
 ### Integrantes
-[Jose Marai Alvarez](https://www.linkedin.com/in/jsemalvarez/)
+[Jose Maria Alvarez](https://www.linkedin.com/in/jsemalvarez/)
+[Axel Julian Ziegler](https://www.linkedin.com/in/axel-julian-ziegler-7091a1177)

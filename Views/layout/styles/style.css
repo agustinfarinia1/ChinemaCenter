@@ -1,0 +1,46 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-image: url('../../img/fondo1.jpg');
+    background-color: rgb(35, 37, 38);
+    background-size: cover;
+    background-position: center;
+    animation: slide 15s infinite; 
+}
+
+@keyframes slide{
+    0%{
+        background-image: url('../../img/fondo1.jpg');
+    }
+    33%{
+        background-image: url('../../img/fondo2.jpg');
+    }
+    66%{
+        background-image: url('../../img/fondo3.jpg');
+    }
+}
+
+.login-form{
+    padding: 40px 20px;
+    background-color: rgba(255, 255, 255,.7);
+    border-radius: 5px;
+}
+
+
+.fb {
+    background-color: #3B5998;
+    color: white;
+    opacity: 0.9;
+}
+
+.fb:hover {
+    opacity: 1;
+    color: white;
+}

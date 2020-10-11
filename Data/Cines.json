@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "nombre": "Pepe",
+        "direccion": "Luro 444",
+        "capacidad": "500",
+        "precio": "233"
+    },
+    {
+        "id": 2,
+        "nombre": "Tato",
+        "direccion": "colon 789",
+        "capacidad": "750",
+        "precio": "555"
+    },
+    {
+        "id": 3,
+        "nombre": "Paco",
+        "direccion": "Indepencencia 1982",
+        "capacidad": "999",
+        "precio": "7"
+    }
+]

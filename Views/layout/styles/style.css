@@ -51,3 +51,12 @@ main{
     opacity: 1;
     color: white;
 }
+
+
+
+#listarPëliculas img{
+    margin: 5px;
+    width: 150px;
+    height: 225px;
+    object-fit: cover;
+}

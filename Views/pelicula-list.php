@@ -1,6 +1,17 @@
 <?php 
  include('nav-bar.php');
  require_once("validate-session.php");
+
+
+use Controllers\PeliculaController as PeliculaController;
+
+
+$pelicula = new PeliculaController();
+
+echo "<pre>";
+var_dump($pelicula->getPeliculasPorGenero(-1,53));   // Puede buscar por genero solo o por genero y
+echo "</pre>";
+
 ?>
 
 <script>

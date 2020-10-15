@@ -7,29 +7,31 @@ use DAO\PeliculaDAO;
 
 class PeliculaController
     {       
+        private $generoDAO;
+        private $peliculas;
         private $generos;
-        private $dao;
+        private $PeliculaDAO;
 
         public function __construct()
         {
-            $this->generos = new GeneroDao();
-            $this->dao = new PeliculaDAO();
+            $this->generoDAO = new GeneroDao();
+            $this->PeliculaDAO = new PeliculaDAO();
             
         }        
 
 
-        public function Index($message = "")
+        public function Index($genero ="",$fecha_min="",$fecha_max="",$pagina = 1,$message = "")
         {            
             require_once(VIEWS_PATH."validate-session.php");
-            $generoslist = $this->generos->getAllGenres();
+            $this->generos = $this->generoDAO->getAllGenres();
+            $this->peliculas = $this->getPeliculasPorGenero($genero,$fecha_min,$fecha_max,$pagina);
             require_once(VIEWS_PATH."pelicula-list.php");
-            
-            
         }
 
-        public function getPeliculasPorGenero($pagina,$genero ="",$fecha_min="",$fecha_max="")  // Necesita la pagina , puede tener filtros por genero por genero y fechas
+        public function getPeliculasPorGenero($genero ="",$fecha_min="",$fecha_max="",$pagina = 1)  // Necesita la pagina , puede tener filtros por genero por genero y fechas
         {
-            return $this->dao->getMoviesByGenresAndDate($pagina,$genero,$fecha_min,$fecha_max);
+            echo $genero;
+            return $this->PeliculaDAO->getMoviesByGenresAndDate($pagina,$genero,$fecha_min,$fecha_max);
         }
     }
 ?>

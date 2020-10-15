@@ -5,6 +5,7 @@
     {
         private $nombre;
         private $comentario;
+        private $comentarioCorto;
         private $foto;
         private $fechaSalida;
 
@@ -26,6 +27,16 @@
         public function setComentario($comentario)
         {
             $this->comentario = $comentario;
+        }
+
+        public function getComentarioCorto()
+        {
+            return $this->comentarioCorto;
+        }
+
+        public function setComentarioCorto($comentarioCorto)
+        {
+            $this->comentarioCorto = $comentarioCorto;
         }
 
         public function getFoto()

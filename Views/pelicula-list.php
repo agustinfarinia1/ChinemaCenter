@@ -37,11 +37,11 @@ require_once("validate-session.php");
 
 <div class="card-deck">
     <?php foreach($this->peliculas as $pelicula) { ?>
-        <div class="col-sm-1 col-md-1 col-lg-3">
+        <div class="col-sm-1 col-md-1 col-lg-3 mb-4">
             <div class="card" style="width: 300px">
                     <img src="https://image.tmdb.org/t/p/w500/<?php echo $pelicula->getFoto(); ?>" class="card-img-top" alt=" <?php  echo $pelicula->getNombre(); ?> ">
                         <div class="card-body" style="width: 300px">
-                            <h5 class="text-primary"><?php echo $pelicula->getNombre(); ?> </h5>
+                            <h6 class="text-primary"><?php echo $pelicula->getNombre(); ?> </h6>
                             <p class="text-primary"> <?php echo $pelicula->getComentarioCorto(); ?> </p>
             </div>
         </div>

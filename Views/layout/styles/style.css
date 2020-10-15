@@ -52,7 +52,10 @@ main{
     color: white;
 }
 
+.negrita {
 
+    color: black;
+}
 
 #listarPëliculas img{
     margin: 5px;

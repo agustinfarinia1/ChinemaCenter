@@ -16,12 +16,15 @@
         <div class="col-sm-1 col-md-1 col-lg-3">
             <div class="card" style="width: 300px">
                     <img src="https://image.tmdb.org/t/p/w500/<?php echo $pelicula->{'poster_path'} ?>" class="card-img-top" alt=" <?php  echo $pelicula->{'title'} ?> ">
-                        <div class="card-body">
+                        <div class="card-body" style="width: 300px">
                             <h5 class="negrita"><?php echo $pelicula->{'title'} ?> </h5>
                             <p class="negrita"> <?php echo $pelicula->{'overview'} ?> </p>
             </div>
         </div>
     </div>
+    <br>
+    <br>
     <?php
         }
+        
     ?>

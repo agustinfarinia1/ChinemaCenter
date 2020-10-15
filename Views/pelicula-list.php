@@ -1,16 +1,49 @@
 <?php
 include('nav-bar.php');
 require_once("validate-session.php");
-echo '<select>';
-foreach ($generoslist as $genero) {
+// echo '<label for="genero">Eliga un Genero:</label>';
+// echo '<select id="genero" name="genero">';
+
+// foreach ($generoslist as $genero) {
 
     
-    //echo $genero->getIdGenero() . " " . $genero->getGenero() . "<br>";
-   echo "<option value= " . $genero->getIdGenero() . ">" . $genero->getGenero() . "</option>";
+//     //echo $genero->getIdGenero() . " " . $genero->getGenero() . "<br>";
+
+//    echo "<option value= " .$genero->getIdGenero(). ">" .$genero->getGenero(). "</option>";
    
-}
-echo '</select>';
+// }
+// echo '</select>'
 ?>
+
+<form class="form-inline" action="pelicula-list.php" method="POST">
+
+        <div class="form-group mb-2">
+        <label for="genero" class="text-secondary" >Genero:</label>
+        <select id="genero" name="genero">
+            <?php
+                 foreach ($generoslist as $genero) {
+            
+                echo "<option value= " .$genero->getIdGenero(). ">" .$genero->getGenero(). "</option>";
+               
+                }
+            ?>  
+        </select>
+        </div>
+        <div class="form-group mb-2">
+            <label for="fechaEntrada"  class="text-secondary">Peliculas desde la fecha</label>
+            <input type="date" name="fechainicio" id="fechaEntrada" min="2018-12-31">            
+        </div>
+
+        <div class="form-group mb-2">
+            <label for="fechaSalida"  class="text-secondary">Hasta la fecha </label>
+            <input type="date" name="fechafinal" id="fechaSalida" min="2020-10-15">   
+        </div>
+       
+        <div class="form-group mb-2">
+        <button type="submit" class="btn btn-primary">Buscar</button>
+        </div>
+        
+</form>
 
 <!-- <script>
 

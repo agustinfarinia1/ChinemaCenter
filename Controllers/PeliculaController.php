@@ -9,7 +9,7 @@
 
         function __construct()
         {
-            $dao = new PeliculaDAO();
+            $this->dao = new PeliculaDAO();
         }
         public function Index($message = "")
         {            
@@ -17,7 +17,7 @@
             require_once(VIEWS_PATH."pelicula-list.php");            
         }
 
-        public function getPeliculasPorGenero($pagina = 1,$genero ="",$fecha_min="",$fecha_max="")  // Necesita la pagina , puede tener filtros por genero por genero y fechas
+        public function getPeliculasPorGenero($pagina,$genero ="",$fecha_min="",$fecha_max="")  // Necesita la pagina , puede tener filtros por genero por genero y fechas
         {
             return $this->dao->getMoviesByGenresAndDate($pagina,$genero,$fecha_min,$fecha_max);
         }

@@ -1,9 +1,18 @@
-<?php 
- include('nav-bar.php');
- require_once("validate-session.php");
+<?php
+include('nav-bar.php');
+require_once("validate-session.php");
+echo '<select>';
+foreach ($generoslist as $genero) {
+
+    
+    //echo $genero->getIdGenero() . " " . $genero->getGenero() . "<br>";
+   echo "<option value= " . $genero->getIdGenero() . ">" . $genero->getGenero() . "</option>";
+   
+}
+echo '</select>';
 ?>
 
-<script>
+<!-- <script>
 
     const listarGeneros = async() => {
 
@@ -89,7 +98,7 @@
                 min="2018-06-07T00:00" 
                 max="2018-06-14T00:00"
             > -->
-
+<!-- 
             <input 
                 type="date" 
                 name="fecha" 
@@ -118,4 +127,4 @@
             </li>
         </ul>
     </nav>
-</div>
+</div> --> -->

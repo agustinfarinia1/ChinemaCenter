@@ -24,6 +24,7 @@ require_once(VIEWS_PATH."footer.php");
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
 // $api = file_get_contents('https://api.themoviedb.org/3/genre/movie/list?&api_key=7e5de46aba8f155b486beee9b4b4cc4f', true);
 // $data = json_decode($api);
 // echo '<pre>';
@@ -34,7 +35,7 @@ require_once(VIEWS_PATH."footer.php");
 
 // $generos = $data->{'genres'};
 
-echo ' <select>';
+// echo ' <select>';
 // foreach( $generos as $genero){
 // echo '<pre>';
 // echo var_dump($genero);
@@ -65,5 +66,6 @@ echo ' <select>';
 // 	echo '</pre>';
 // }
 	
+	//require_once(VIEWS_PATH."footer.php");
 	
 ?>

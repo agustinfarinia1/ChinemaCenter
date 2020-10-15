@@ -1,3 +1,4 @@
+
 <?php
 include('nav-bar.php');
 require_once("validate-session.php");
@@ -45,24 +46,21 @@ require_once("validate-session.php");
         
 </form>
 
-<!-- <script>
 
-    const listarGeneros = async() => {
 
-        const url = 'https://api.themoviedb.org/3/genre/movie/list?api_key=<?php echo API_KEY ?>&language=en-US&page=64'
-        
-        try {
-            const res = await fetch(url)
-            const data = await res.json()   
-            const {genres:generos} = data     
+<?php 
 
-            generos.forEach( genero => generoItem(genero))
 
-        } catch (error) {
-            console.log(error)
-        }
+use Controllers\PeliculaController as PeliculaController;
 
-    }
+
+$pelicula = new PeliculaController();
+
+echo "<pre>";
+var_dump($pelicula->getPeliculasPorGenero(1,53,"2020-01-10","2020-10-10"));   // Puede buscar por genero solo o por genero y
+echo "</pre>";
+
+<script>    
 
     const generoItem = (genero) => {
         // console.log(genero)
@@ -161,3 +159,6 @@ require_once("validate-session.php");
         </ul>
     </nav>
 </div> --> -->
+
+?>
+

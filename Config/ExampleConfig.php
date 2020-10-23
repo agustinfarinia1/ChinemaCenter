@@ -3,7 +3,9 @@
 define("ROOT", dirname(__DIR__) . "/");
 
 //Path to your project's root folder
-define("FRONT_ROOT", "/Chinemacenter/");
+//Si su url es 'http://localhost/proyectos/chinemacenter/',
+//FRONT_ROOT debe ser '/proyectos/chinemacenter/'
+define("FRONT_ROOT", "/chinemacenter/");  
 define("VIEWS_PATH", "Views/");
 define("CSS_PATH", FRONT_ROOT.VIEWS_PATH . "layout/styles/");
 define("JS_PATH", FRONT_ROOT.VIEWS_PATH . "js/");

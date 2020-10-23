@@ -1,6 +1,12 @@
 # ChinemaCenter
 Trabajo Final- compra y venta de entradas de cine
 
+
+## Configuraciones del proyecto
+
+- Crear archivo `Config.php` (copiar de `Config/ExampleConfig.php` y modificar)
+- Obtener la API_KEY de [TheMovieDb](https://developers.themoviedb.org/3)
+
 ### Integrantes
 [Jose Maria Alvarez](https://www.linkedin.com/in/jsemalvarez/)
 

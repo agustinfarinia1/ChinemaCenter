@@ -15,10 +15,8 @@ class PeliculaController
         public function __construct()
         {
             $this->generoDAO = new GeneroDao();
-            $this->PeliculaDAO = new PeliculaDAO();
-            
-        }        
-
+            $this->PeliculaDAO = new PeliculaDAO();            
+        } 
 
         public function Index($genero ="",$fecha_min="",$fecha_max="",$pagina = 1,$message = "")
         {            
@@ -33,5 +31,10 @@ class PeliculaController
             echo $genero;
             return $this->PeliculaDAO->getMoviesByGenresAndDate($pagina,$genero,$fecha_min,$fecha_max);
         }
+
+        public function cartelera(){
+            require_once(VIEWS_PATH."pelicula-cartelera.php");
+        }
+
     }
 ?>

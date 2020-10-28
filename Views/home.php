@@ -5,7 +5,7 @@
 <main class="home-login">
 <div class="login-form">
     <h2 class="text-primary">ChinemaCenter</h2>
-    <form action="<?php echo FRONT_ROOT."Home/Login" ?>" method="post">
+    <form action="<?php echo FRONT_ROOT."User/Login" ?>" method="post">
         <div class="form-group">
             <label for="exampleInputEmail1"  class="text-secondary">Usuario</label>
             <input type="email" name="userName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">            

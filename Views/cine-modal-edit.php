@@ -19,21 +19,12 @@
         <div class="modal-body">
           <div class="form-group">
             <label for="edit-cine-nombre" class="col-form-label text-secondary">Nombre:</label>
-            <input type="text" value="<?php echo $cine->getNombre(); ?>" name="nombre" class="form-control" id="edit-cine-nombre">
+            <input type="text" value="<?php echo $cine->getNombre(); ?>" name="nombre" class="form-control" id="edit-cine-nombre" required>
           </div>
           <div class="form-group">
             <label for="edit-cine-direccion" class="col-form-label text-secondary">Direccion:</label>
-            <input type="text" value="<?php echo $cine->getDireccion(); ?>" name="direccion" class="form-control" id="edit-cine-direccion">
-          </div>
-          <div class="form-group">
-            <label for="edit-cine-capacidad" class="col-form-label text-secondary">Capacidad:</label>
-            <input type="number" value=<?php echo $cine->getCapacidad(); ?> name="capacidad" class="form-control" id="edit-cine-capacidad">
-          </div>
-          <div class="form-group">
-            <label for="edit-cine-valor" class="col-form-label text-secondary">Valor de la entrada:</label>
-            <input type="text" value=<?php echo $cine->getPrecio(); ?> name="valor" class="form-control" id="edit-cine-valor">
-          </div>
-         
+            <input type="text" value="<?php echo $cine->getDireccion(); ?>" name="direccion" class="form-control" id="edit-cine-direccion" required>
+          </div> 
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>

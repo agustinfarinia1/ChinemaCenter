@@ -15,20 +15,20 @@
         <div class="modal-body">
           <div class="form-group">
             <label for="nuevo-cine-nombre" class="col-form-label text-secondary">Nombre:</label>
-            <input type="text" name="nombre" class="form-control" id="nuevo-cine-nombre">
+            <input type="text" name="nombre" class="form-control" id="nuevo-cine-nombre" required>
           </div>
           <div class="form-group">
             <label for="nuevo-cine-direccion" class="col-form-label text-secondary">Direccion:</label>
-            <input type="text" name="direccion" class="form-control" id="nuevo-cine-direccion">
+            <input type="text" name="direccion" class="form-control" id="nuevo-cine-direccion" required>
           </div>
-          <div class="form-group">
+          <!-- <div class="form-group">
             <label for="nuevo-cine-capacidad" class="col-form-label text-secondary">Capacidad:</label>
             <input type="number" name="capacidad" class="form-control" id="nuevo-cine-capacidad">
           </div>
           <div class="form-group">
             <label for="nuevo-cine-valor" class="col-form-label text-secondary">Valor de la entrada:</label>
             <input type="number" name="valor" class="form-control" id="nuevo-cine-valor">
-          </div>
+          </div> -->
          
         </div>
         <div class="modal-footer">

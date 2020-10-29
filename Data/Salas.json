@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "id_cine": null,
+        "nombre": "nachin",
+        "capacidad": "666",
+        "precio": "1"
+    },
+    {
+        "id": 2,
+        "id_cine": null,
+        "nombre": "nachin",
+        "capacidad": "666",
+        "precio": "1"
+    },
+    {
+        "id": 3,
+        "id_cine": "1",
+        "nombre": "manola",
+        "capacidad": "888",
+        "precio": "999"
+    }
+]

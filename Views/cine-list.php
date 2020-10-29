@@ -28,7 +28,11 @@
                     <div class="card-header bg-dark" id="headingOne">
                         <div class="d-flex justify-content-between mb-0">
                         
-                            <button class="btn btn-outline-primary">
+                            <button 
+                                class="btn btn-outline-primary"
+                                data-toggle="modal" 
+                                data-target="#newSala<?php echo $cine->getId(); ?>"
+                            >
                                 Agregar sala
                             </button>
                         
@@ -57,35 +61,51 @@
                     <div id="collapse<?php echo $cine->getId(); ?>" class="collapse bg-secondary" aria-labelledby="headingOne" data-parent="#accordionExample">
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-2 d-flex align-items-center">
+                                <!-- <div class="col-2 d-flex align-items-center">
                                     <div class="btn-group-vertical btn-group-toggle" role="group" aria-label="Button group with nested dropdown">
                                         <button type="button" class="btn btn-dark btn-block">Sala 1</button>
                                         <button type="button" class="btn btn-dark btn-block">Sala 2</button>
                                         <button type="button" class="btn btn-dark btn-block">Sala 3</button>
                                         <button type="button" class="btn btn-dark btn-block">Sala 4</button>
                                     </div>
-                                </div>
-                                <div class="col-10">
+                                </div> -->
+                                <div class="col-12">
+                                    <?php 
+                                        foreach($salaList as $sala){
+                                            if($cine->getId() == $sala->getIdCine()){
+                                    ?>
                                     <div class="d-flex justify-content-between align-items-center alert alert-info">
+                                        <button class="btn btn-outline-primary">Nueva Pelicula</button>
                                         <span>
-                                            Sala: <span class="text-uppercase font-weight-bold text-monospace">Nombre de la sala</span> 
+                                            Sala: <span class="text-uppercase font-weight-bold text-monospace"><?php echo $sala->getNombre(); ?></span> 
                                         </span>
                                         <span>
-                                            Butacas: <span class="text-uppercase font-weight-bold text-monospace">500</span> 
+                                            Butacas: <span class="text-uppercase font-weight-bold text-monospace"><?php echo $sala->getCapacidad(); ?></span> 
                                         </span>
                                         <span> 
-                                            Precio: <span class="text-uppercase font-weight-bold text-monospace">200</span> 
+                                            Precio: <span class="text-uppercase font-weight-bold text-monospace"><?php echo $sala->getPrecio(); ?></span> 
                                         </span>
-                                        <span>
-                                            <button class="btn btn-outline-warning">
-                                                Edit
-                                            </button>
-                                            <button class="btn btn-outline-danger">
-                                                Eliminar
-                                            </button>
+                                        <span>                                           
+                                            <button 
+                                                class="btn btn-outline-warning"
+                                                data-toggle="modal" 
+                                                data-target="#editSala<?php echo $sala->getId(); ?>"
+                                            >Editar</button>
+                                            <button 
+                                                class="btn btn-outline-danger"
+                                                data-toggle="modal" 
+                                                data-target="#deleteSala<?php echo $sala->getId(); ?>"
+                                            >Eliminar</button>
                                         </span>      
                                     </div>
-                                    <table class="table table-dark table-hover">
+                                    <?php
+                                               include('sala-modal-edit.php');
+                                               include('sala-modal-delete.php');
+                                            }// fin del if
+                                        }// fin del foreach
+                                    ?>
+                                    <!--///////////////////////////////////////-->
+                                    <!-- <table class="table table-dark table-hover">
                                         <thead>
                                           <tr>
                                             <th scope="col">Peliulas</th>
@@ -145,7 +165,9 @@
                                             </td>
                                           </tr>
                                         </tbody>
-                                      </table>
+                                      </table> -->
+                                      <!--///////////////////////////////////////-->
+
                                 </div>
 
                             </div>
@@ -157,7 +179,7 @@
 
 
             <?php
-                    }
+                }
             ?>
 
         </div><!-- Fin de acordion -->
@@ -174,5 +196,6 @@
     foreach($cineList as $cine){
         include('cine-modal-edit.php');
         include('cine-modal-delete.php');
+        include('sala-modal-new.php');
     }
 ?>

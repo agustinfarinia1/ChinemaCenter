@@ -16,6 +16,7 @@ class PeliculaDAO
             $data = json_decode($api);  // Lo deconstruye en un array
             foreach($data->{'results'} as $pelicula){
                 $movie = new Pelicula();
+                $movie->setId($pelicula->{'id'});
                 $movie->setNombre($pelicula->{'title'});
                 $movie->setComentario($pelicula->{'overview'});
                 $movie->setComentarioCorto(substr($movie->getComentario(),0,120)."...");

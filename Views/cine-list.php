@@ -75,7 +75,10 @@
                                             if($cine->getId() == $sala->getIdCine()){
                                     ?>
                                     <div class="d-flex justify-content-between align-items-center alert alert-info">
-                                        <button class="btn btn-outline-primary">Nueva Pelicula</button>
+                                        <a 
+                                            class="btn btn-outline-primary"
+                                            href="<?php echo  FRONT_ROOT."Funcion/SetSala/".$sala->getIdCine() ?>"
+                                        >Nueva Pelicula</a>
                                         <span>
                                             Sala: <span class="text-uppercase font-weight-bold text-monospace"><?php echo $sala->getNombre(); ?></span> 
                                         </span>

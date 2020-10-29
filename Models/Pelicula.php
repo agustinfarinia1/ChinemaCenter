@@ -3,11 +3,22 @@
 
     class Pelicula // todavia no esta hecho
     {
+        private $id;
         private $nombre;
         private $comentario;
         private $comentarioCorto;
         private $foto;
         private $fechaSalida;
+
+        public function getId()
+        {
+            return $this->id;
+        }
+    
+        public function setId($id)
+        {
+            $this->id= $id;
+        }
 
         public function getNombre()
         {

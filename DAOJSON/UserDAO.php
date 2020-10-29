@@ -1,7 +1,7 @@
 <?php
-    namespace DAO;
+    namespace DAOJSON;
 
-    use DAO\IUserDAO as IUserDAO;
+    use DAOJSON\IUserDAO as IUserDAO;
     use Models\User as User;
 
     class UserDAO implements IUserDAO

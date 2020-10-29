@@ -1,7 +1,7 @@
 <?php
     namespace Controllers;
 
-    use DAO\CineDAO as CineDAO;
+    use DAOJSON\CineDAO as CineDAO;
     use Models\Cine as Cine;
 
     class CineController

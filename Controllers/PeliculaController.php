@@ -1,8 +1,8 @@
 <?php
     namespace Controllers;
 
-use DAO\GeneroDao;
-use DAO\PeliculaDAO;
+use DAOJSON\GeneroDao as GeneroDAO;
+use DAOJSON\PeliculaDAO as PeliculaDAO;
       
 
 class PeliculaController

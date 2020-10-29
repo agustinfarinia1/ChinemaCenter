@@ -1,5 +1,5 @@
 <?php
-    namespace DAO;
+    namespace DB;
 
     use Models\User as User;
 

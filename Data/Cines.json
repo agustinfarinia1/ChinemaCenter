@@ -1,12 +1,5 @@
 [
     {
-        "id": 1,
-        "nombre": "Pepe",
-        "direccion": "Luro 444",
-        "capacidad": "500",
-        "precio": "233"
-    },
-    {
         "id": 2,
         "nombre": "Tato",
         "direccion": "colon 789",
@@ -26,5 +19,12 @@
         "direccion": "lala",
         "capacidad": "5",
         "precio": "50"
+    },
+    {
+        "id": 5,
+        "nombre": "erer",
+        "direccion": "21321",
+        "capacidad": "123",
+        "precio": "123"
     }
 ]

@@ -57,9 +57,51 @@ main{
     color: black;
 }
 
+/*/////////////////////////////////////////////////////////////////////////
+                            P E L I C U L A S
+/////////////////////////////////////////////////////////////////////////*/
+
 #listarPëliculas img{
     margin: 5px;
     width: 150px;
     height: 225px;
     object-fit: cover;
 }
+
+.slide-top1 {
+    -webkit-animation: slide-top 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+            animation: slide-top 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.slide-top2 {
+    -webkit-animation: slide-top 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+            animation: slide-top 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.slide-top3 {
+    -webkit-animation: slide-top 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+            animation: slide-top 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@-webkit-keyframes slide-top {
+    0% {
+        -webkit-transform: translateY(100px);
+                transform: translateY(100px);
+    }
+    100% {
+        -webkit-transform: translateY(0);
+                transform: translateY(0);
+    }
+}
+@keyframes slide-top {
+    0% {
+        -webkit-transform: translateY(100px);
+                transform: translateY(100px);
+    }
+    100% {
+        -webkit-transform: translateY(0);
+                transform: translateY(0);
+    }
+}
+
+

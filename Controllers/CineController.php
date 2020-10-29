@@ -22,6 +22,7 @@
         public function ShowListView()
         {
             require_once(VIEWS_PATH."validate-session.php");
+            require_once(VIEWS_PATH."validate-rol.php");            
             $cineList = $this->cineDAO->getAll();
             
             require_once(VIEWS_PATH."cine-list.php");

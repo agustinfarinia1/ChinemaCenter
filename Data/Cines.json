@@ -19,5 +19,12 @@
         "direccion": "Indepencencia 1982",
         "capacidad": "999",
         "precio": "78"
+    },
+    {
+        "id": 4,
+        "nombre": "manolo arias",
+        "direccion": "lala",
+        "capacidad": "5",
+        "precio": "50"
     }
 ]

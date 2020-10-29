@@ -39,6 +39,8 @@
                      $user = new user();
                      $user->setUserName($content["userName"]);
                      $user->setPassword($content["password"]);
+                     $user->setName($content["name"]);
+                     $user->setRol($content["rol"]);
 
                      array_push($this->userList, $user);
                  }

@@ -60,6 +60,13 @@
 </head>
 <body class="bg-dark text-light">
 
+<?php
+
+include('nav-bar.php');
+require_once("validate-session.php");
+
+?>
+
     <main class="min-vh-100 d-flex justify-content-center">
 
         <div class="w-75">

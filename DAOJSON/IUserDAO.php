@@ -1,5 +1,7 @@
 <?php
-    namespace DAO;
+    namespace DAOJSON;
+
+// namespace DB;
 
     use Models\User as User;
 

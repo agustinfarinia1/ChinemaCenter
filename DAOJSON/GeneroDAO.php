@@ -1,5 +1,5 @@
 <?php
-    namespace DAO;
+    namespace DAOJSON;
 
     use Models\Genero as Genero;
 

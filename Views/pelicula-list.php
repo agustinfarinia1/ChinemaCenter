@@ -34,22 +34,27 @@ require_once("validate-session.php");
         </div>
         
 </form>
-
-<div class="card-deck">
-    <?php foreach($this->peliculas as $pelicula) { ?>
-        <div class="col-sm-1 col-md-1 col-lg-3 mb-4">
+<div class="row">  
+<?php foreach($this->peliculas as $pelicula) { ?>
+     
+        <div class="col-4 mb-4">
             <div class="card" style="width: 300px">
-                    <img src="https://image.tmdb.org/t/p/w500/<?php echo $pelicula->getFoto(); ?>" class="card-img-top" alt=" <?php  echo $pelicula->getNombre(); ?> ">
-                        <div class="card-body" style="width: 300px">
-                            <h6 class="text-primary"><?php echo $pelicula->getNombre(); ?> </h6>
-                            <p class="text-primary"> <?php echo $pelicula->getComentarioCorto(); ?> </p>
-            </div>
-        </div>
-    </div>
-    <br>
-    <br>
-    <?php
-        }
-        
-    ?>
-
+                <img src="https://image.tmdb.org/t/p/w500/<?php echo $pelicula->getFoto(); ?>" class="card-img-top" alt=" <?php  echo $pelicula->getNombre(); ?> "/>
+                <div class="card-body" style="width: 300px">
+                    <h6 class="text-primary"><?php echo $pelicula->getNombre(); ?> </h6>
+                    <p class="text-primary"> <?php echo $pelicula->getComentario(); ?> </p>
+                </div>
+                <a 
+                    class="btn btn-info btn-block"
+                    href="<?php echo  FRONT_ROOT."Funcion/SetPelicula/".$pelicula->getId() ?>"
+                >
+                    Selecionar Pelicula
+                </a>
+            </div>            
+        </div> 
+    
+<?php
+    }
+    
+?>
+</div>

@@ -1,7 +1,7 @@
 <?php
-    namespace DAO;
+    namespace DAOJSON;
 
-    use DAO\ICineDAO as ICineDAO;
+    use DAOJSON\ICineDAO as ICineDAO;
     use Models\Cine as Cine;
 
     class CineDAO implements ICineDAO
@@ -28,8 +28,8 @@
                 if($c->getId() == $cine->getId()){                    
                     $c->setNombre($cine->getNombre());
                     $c->setDireccion($cine->getDireccion());
-                    $c->setCapacidad($cine->getCapacidad());
-                    $c->setPrecio($cine->getPrecio());
+                    // $c->setCapacidad($cine->getCapacidad());
+                    // $c->setPrecio($cine->getPrecio());
                 }
             }
 
@@ -70,8 +70,8 @@
                      $cine->setId($content["id"]);
                      $cine->setNombre($content["nombre"]);
                      $cine->setDireccion($content["direccion"]);
-                     $cine->setCapacidad($content["capacidad"]);
-                     $cine->setPrecio($content["precio"]);
+                    //  $cine->setCapacidad($content["capacidad"]);
+                    //  $cine->setPrecio($content["precio"]);
 
                      array_push($this->cineList, $cine);
                  }
@@ -88,8 +88,8 @@
                 $valuesArray["id"] = $cine->getId();
                 $valuesArray["nombre"] = $cine->getNombre();
                 $valuesArray["direccion"] = $cine->getDireccion();
-                $valuesArray["capacidad"] = $cine->getCapacidad();
-                $valuesArray["precio"] = $cine->getPrecio();
+                // $valuesArray["capacidad"] = $cine->getCapacidad();
+                // $valuesArray["precio"] = $cine->getPrecio();
                 array_push($arrayToEncode, $valuesArray);
             }
 

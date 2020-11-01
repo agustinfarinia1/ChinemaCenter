@@ -1,7 +1,11 @@
 <?php
     namespace Controllers;
 
-    use DAO\CineDAO as CineDAO;
+
+    //use DAO\CineDAO as CineDAO;    
+    use DAOJSON\CineDAO as CineDAO;
+    use DAOJSON\SalaDAO as SalaDAO;
+    //use DAOJSON\CineDAO as CineDAO;
     use Models\Cine as Cine;
 
     class CineController
@@ -11,32 +15,38 @@
         public function __construct()
         {
             $this->cineDAO = new CineDAO();
+            $this->salaDAO = new SalaDAO();
         }
 
-        public function ShowAddView()
-        {
-            require_once(VIEWS_PATH."validate-session.php");
-            require_once(VIEWS_PATH."add-cellphone.php");
-        }
+        // public function ShowAddView()
+        // {
+        //     require_once(VIEWS_PATH."validate-session.php");
+        //     require_once(VIEWS_PATH."add-cellphone.php");
+        // }
 
         public function ShowListView()
         {
             require_once(VIEWS_PATH."validate-session.php");
             require_once(VIEWS_PATH."validate-rol.php");            
+
             $cineList = $this->cineDAO->getAll();
+            $salaList = $this->salaDAO->getAll();
             
+
+            //$cineList = $this->cineDAO->getAll();            
+
             require_once(VIEWS_PATH."cine-list.php");
         }
 
-        public function Add($nombre, $direccion, $capacidad, $precio)
+        public function Add($nombre, $direccion)
         {
             require_once(VIEWS_PATH."validate-session.php");
 
             $cine = new Cine();
             $cine->setNombre($nombre);
             $cine->setDireccion($direccion);
-            $cine->setCapacidad($capacidad);
-            $cine->setPrecio($precio);
+            // $cine->setCapacidad($capacidad);
+            // $cine->setPrecio($precio);
 
             $this->cineDAO->Add($cine);
 
@@ -44,7 +54,7 @@
             // $this->ShowListView();
         }
 
-        public function Edit($nombre, $direccion, $capacidad, $precio, $id)
+        public function Edit($nombre, $direccion, $id)
         {
             require_once(VIEWS_PATH."validate-session.php");
             
@@ -52,8 +62,8 @@
             $cine->setId($id);
             $cine->setNombre($nombre);
             $cine->setDireccion($direccion);
-            $cine->setCapacidad($capacidad);
-            $cine->setPrecio($precio);
+            // $cine->setCapacidad($capacidad);
+            // $cine->setPrecio($precio);
 
             $this->cineDAO->Edit($cine);
 

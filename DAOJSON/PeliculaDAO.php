@@ -1,5 +1,5 @@
 <?php
-    namespace DAO;
+    namespace DAOJSON;
 
 use Models\Pelicula as Pelicula;
 
@@ -16,9 +16,10 @@ class PeliculaDAO
             $data = json_decode($api);  // Lo deconstruye en un array
             foreach($data->{'results'} as $pelicula){
                 $movie = new Pelicula();
+                $movie->setId($pelicula->{'id'});
                 $movie->setNombre($pelicula->{'title'});
                 $movie->setComentario($pelicula->{'overview'});
-                $movie->setComentarioCorto(substr($movie->getComentario(),0,120)."...");
+                // $movie->setComentarioCorto(substr($movie->getComentario(),0,120)."...");
                 $movie->setFoto($pelicula->{'backdrop_path'});
                 $movie->setFechaSalida($pelicula->{'release_date'});
                 array_push($arregloPeliculas,$movie);   // Guarda cada pelicula de la pagina en el arreglo

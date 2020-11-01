@@ -1,13 +1,12 @@
 <?php
-<<<<<<< HEAD:DB/UserDAO.php
-    namespace DB;
-
-    use DB\IUserDAO as IUserDAO;
-=======
     namespace DAOJSON;
 
+    // namespace DB;
+    // use DB\IUserDAO as IUserDAO;
+
+
     use DAOJSON\IUserDAO as IUserDAO;
->>>>>>> database-peliculas:DAOJSON/UserDAO.php
+
     use Models\User as User;
 
     class UserDAO implements IUserDAO

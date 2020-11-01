@@ -19,7 +19,7 @@ class PeliculaDAO
                 $movie->setId($pelicula->{'id'});
                 $movie->setNombre($pelicula->{'title'});
                 $movie->setComentario($pelicula->{'overview'});
-                $movie->setComentarioCorto(substr($movie->getComentario(),0,120)."...");
+                // $movie->setComentarioCorto(substr($movie->getComentario(),0,120)."...");
                 $movie->setFoto($pelicula->{'backdrop_path'});
                 $movie->setFechaSalida($pelicula->{'release_date'});
                 array_push($arregloPeliculas,$movie);   // Guarda cada pelicula de la pagina en el arreglo

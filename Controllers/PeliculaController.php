@@ -1,14 +1,13 @@
 <?php
     namespace Controllers;
 
-<<<<<<< HEAD
+
 use DAOJSON\GeneroDao as GeneroDAO;
 use DAOJSON\PeliculaDAO as PeliculaDAO;
-=======
-use DAOJSON\GeneroDao;
-use DAODB\PeliculaDAO;
-use Models\Pelicula;
->>>>>>> database-peliculas
+// use DAOJSON\GeneroDao;
+// use DAODB\PeliculaDAO;
+// use Models\Pelicula;
+
       
 
 class PeliculaController

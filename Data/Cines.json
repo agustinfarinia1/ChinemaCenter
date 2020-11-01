@@ -1,17 +1,9 @@
 [
     {
         "id": 1,
-        "nombre": "Pepe",
-        "direccion": "Luro 444"
-    },
-    {
-        "id": 2,
-        "nombre": "Tato",
-        "direccion": "colon 789"
-    },
-    {
-        "id": 3,
-        "nombre": "nachooo",
-        "direccion": "tttt"
+        "nombre": "erer",
+        "direccion": "21321",
+        "capacidad": "123",
+        "precio": "123"
     }
 ]

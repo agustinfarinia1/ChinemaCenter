@@ -1,8 +1,10 @@
 <?php
     namespace Controllers;
 
-    use DAO\CineDAO as CineDAO;
+    //use DAO\CineDAO as CineDAO;    
+    use DAOJSON\CineDAO as CineDAO;
     use DAO\SalaDAO as SalaDAO;
+
     use Models\Cine as Cine;
 
     class CineController
@@ -25,9 +27,13 @@
         {
             require_once(VIEWS_PATH."validate-session.php");
             require_once(VIEWS_PATH."validate-rol.php");            
+
             $cineList = $this->cineDAO->getAll();
             $salaList = $this->salaDAO->getAll();
             
+
+            //$cineList = $this->cineDAO->getAll();            
+
             require_once(VIEWS_PATH."cine-list.php");
         }
 

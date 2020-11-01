@@ -1,9 +1,38 @@
 <?php
     namespace Controllers;
 
+    use DB\FuncionDAO as FuncionDAO;
+    use Models\Funcion as Funcion;
+
     class FuncionController
     {
-       
+        private $funcionDAO;
+
+        public function __construct()
+        {
+            $this->funcionDAO = new FuncionDAO();
+        }
+
+        public function Add($funcion)
+        {
+            require_once(VIEWS_PATH."validate-session.php");
+
+            $this->funcionDAO->Add($funcion);
+
+        }
+
+        public function getAll(){
+            return $this->funcionDAO->getAll();
+        }
+
+        /*  public function Remove($id)
+        {
+            require_once(VIEWS_PATH."validate-session.php");
+            
+            $this->cellPhoneDAO->Remove($id);
+
+            $this->ShowListView();
+        } */
 
         public function SetSala($idSala)
         {           
@@ -17,17 +46,17 @@
             require_once(VIEWS_PATH."funcion-add.php");
         }
 
-        public function Add(){
+        // public function Add(){
 
-            //llamnar a la api y traer lo que dura la peli
+        //     //llamnar a la api y traer lo que dura la peli
 
-            // calcular la hora de fin de la funcion
+        //     // calcular la hora de fin de la funcion
 
-            //insertar en la BD
+        //     //insertar en la BD
 
-            require_once(VIEWS_PATH."cartelera.php");
+        //     require_once(VIEWS_PATH."cartelera.php");
 
-        }
-   
+        // }
+
     }
 ?>

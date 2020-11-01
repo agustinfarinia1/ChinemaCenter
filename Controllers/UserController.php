@@ -1,7 +1,9 @@
 <?php
     namespace Controllers;
 
-    use DB\UserDAO as UserDAO;
+
+    //use DB\UserDAO as UserDAO;
+    use DAOJSON\UserDAO as UserDAO;
     use Models\User as User;
 
     class UserController

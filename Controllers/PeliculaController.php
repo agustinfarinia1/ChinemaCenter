@@ -1,8 +1,14 @@
 <?php
     namespace Controllers;
 
+<<<<<<< HEAD
 use DAOJSON\GeneroDao as GeneroDAO;
 use DAOJSON\PeliculaDAO as PeliculaDAO;
+=======
+use DAOJSON\GeneroDao;
+use DAODB\PeliculaDAO;
+use Models\Pelicula;
+>>>>>>> database-peliculas
       
 
 class PeliculaController
@@ -36,5 +42,29 @@ class PeliculaController
             require_once(VIEWS_PATH."pelicula-cartelera.php");
         }
 
+        public function crear_pelicula ($id_pelicula, $nombre, $comentario, $poster, $foto, $fechaSalida, $duracion)
+        {
+            $peli = new Pelicula($id_pelicula , $nombre , $comentario , $poster , $foto ,$fechaSalida , $duracion );
+            $this->PeliculaDAO->crear($peli);
+
+        }
+
+        public function mostrar_Todas(){
+
+            $list = $this->PeliculaDAO->readAll();
+    
+            if($list == false)
+            {
+                $list = [];
+            }
+            
+            return $list;
+        }
+        
+        public function leer_una($id){
+    
+            return $movie = $this->PeliculaDAO->buscar_por_id($id);
+        }
+    
     }
 ?>

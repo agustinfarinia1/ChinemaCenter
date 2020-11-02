@@ -13,7 +13,7 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navAdministracion">
             <a class="dropdown-item" href="<?php echo  FRONT_ROOT."Cine/ShowListView"?>">Cines</a>
-            <!-- <a class="dropdown-item" href="#">Another action</a> -->
+            <a class="dropdown-item" href="#">Peliculas</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">Estadisticas</a>
           </div>

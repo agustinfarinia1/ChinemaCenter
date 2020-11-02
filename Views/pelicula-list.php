@@ -5,9 +5,11 @@ require_once("validate-session.php");
 
 ?>
 <div class="container">
+    <div class="col-6 offset-3">
+        <button type="button" class="btn btn-danger btn-block">Actualizar el archivo de peliculas</button>
+    </div>    
     <div class="row">
-        <form class="form-inline d-flex justify-content-between col-12 my-3" action="<?php echo FRONT_ROOT."Pelicula/Index" ?>" method="POST">
-            
+        <form class="form-inline d-flex justify-content-between col-12 my-3" action="<?php echo FRONT_ROOT."Pelicula/Index" ?>" method="POST">            
             <div class="form-group">
                 <label class="my-1 mr-2" for="genero">Genero</label>
                 <select class="custom-select my-1 mr-sm-2" id="genero" name="genero">
@@ -30,7 +32,7 @@ require_once("validate-session.php");
                 <input class="form-control" type="date" name="fechafinal" id="fechaSalida" min="2020-10-15">   
             </div>           
             
-            <button type="submit" class="btn btn-primary mx-2 px-5">Buscar</button>
+            <button type="submit" class="btn btn-primary mx-2">Buscar</button>
                 
         </form>
 

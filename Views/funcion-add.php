@@ -8,14 +8,14 @@ require_once("validate-session.php");
 
 <main class="min-vh-100 d-flex align-items-center justify-content-center">
 
-    <div style="width: 400px">
-        <h2 class="text-center">Funcion add</h2>
+    <div style="width: 400px; background-color: #273c75;" class="px-2 py-5 rounded">
+        <h2 class="text-center">Nueva Funcion</h2>
 
         <h4 class="text-center"><?php echo "ID Sala: " .  $_SESSION["sala"]?></h4>
         <h4 class="text-center"><?php echo "ID pelicula: " .  $_SESSION["idPelicula"]?></h4>   
 
            
-        <form action="<?php echo FRONT_ROOT."Funcion/Add" ?>" method="POST">
+        <form action="<?php echo FRONT_ROOT."Funcion/Add" ?>" method="POST" class="mt-4">
             <div class="form-group row">
                 <label for="fechaEntrada"  class="col-sm-4 col-form-label">Fecha de Inicio</label>
                 <div class="col-sm-8">
@@ -29,6 +29,8 @@ require_once("validate-session.php");
                     >     
                 </div>                        
             </div>
+
+            <hr class="border-bottom" />
 
             <div class="form-group row">
                 <label for="fechaEntrada"  class=" col-sm-4 col-form-label">Fecha de fin</label>
@@ -44,6 +46,8 @@ require_once("validate-session.php");
                 </div>                     
             </div>
 
+            <hr class="border-bottom" />
+
             <div class="form-group row">
                 <label for="fechaEntrada"  class=" col-sm-4 col-form-label">Hora</label>
                 <div class="col-sm-8">
@@ -56,6 +60,8 @@ require_once("validate-session.php");
                     > 
                 </div>               
             </div>
+
+            <hr class="border-bottom" />
            
             <div class="row d-flex justify-content-center">
                 <div class="form-check form-check-inline">
@@ -95,7 +101,7 @@ require_once("validate-session.php");
             </div>
 
             <button 
-                class="btn btn-primary btn-block"
+                class="btn btn-primary btn-block mt-4"
             >
                 Agregar Funcion
             </button>

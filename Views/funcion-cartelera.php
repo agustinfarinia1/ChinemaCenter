@@ -112,23 +112,28 @@ require_once("validate-session.php");
 
             <div class="row"><!-- Lista de peliculas -->                
 
-                <div class="col-4 my-2 slide-top1">
+                <div class="col-3 my-2 slide-top1">
                     <img src="https://image.tmdb.org/t/p/w500/zGVbrulkupqpbwgiNedkJPyQum4.jpg" class="img-fluid" alt="">
                     <button type="button" class="btn btn-link btn-block">Titulo de la peli</button>
                 </div>
 
-                <div class="col-4 my-2 slide-top2">
+                <div class="col-3 my-2 slide-top2">
                     <img src="https://image.tmdb.org/t/p/w500/kiX7UYfOpYrMFSAGbI6j1pFkLzQ.jpg" class="img-fluid img-thumbnail" alt="">
                     <button type="button" class="btn btn-link btn-block">Titulo de la peli</button>
                 </div>
 
                 
-                <div class="col-4 my-2 slide-top3">
+                <div class="col-3 my-2 slide-top3">
                     <img src="https://image.tmdb.org/t/p/w500/ltyARDw2EFXZ2H2ERnlEctXPioP.jpg" class="img-fluid rounded" alt="">
                     <button type="button" class="btn btn-link btn-block">Titulo de la peli</button>
                 </div>
+
+                <div class="col-3 my-2 slide-top1">
+                    <img src="https://image.tmdb.org/t/p/w500/zGVbrulkupqpbwgiNedkJPyQum4.jpg" class="img-fluid" alt="">
+                    <button type="button" class="btn btn-link btn-block">Titulo de la peli</button>
+                </div>
                 
-                <div class="col-4 mt-3">
+                <!-- <div class="col-4 mt-3">
                     <div class="card">
                         <img src="https://image.tmdb.org/t/p/w500/4gKyQ1McHa8ZKDsYoyKQSevF01J.jpg" class="card-img-top" alt="...">
                         <div class="card-body text-secondary">
@@ -152,9 +157,9 @@ require_once("validate-session.php");
                             <small class="text-muted">Last updated 3 mins ago</small>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
-                <div class="col-4 mt-3">
+                <!-- <div class="col-4 mt-3">
                     <div class="card">
                         <img src="https://image.tmdb.org/t/p/w500/r5srC0cqU36n38azFnCyReEksiR.jpg" class="card-img-top" alt="...">
                         <div class="card-body text-secondary">
@@ -165,7 +170,7 @@ require_once("validate-session.php");
                             <small class="text-muted">Last updated 3 mins ago</small>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
 
             </div><!-- Fin lista de peliculas -->
@@ -175,9 +180,6 @@ require_once("validate-session.php");
         
 
     </main>
-    <div>
-        holis
-    </div>
     
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>

@@ -54,8 +54,16 @@
 
             //insertar en la BD
 
-            require_once(VIEWS_PATH."cartelera.php");
+            require_once(VIEWS_PATH."funcion-cartelera.php");
 
+        }
+
+        public function Cartelera(){
+            require_once(VIEWS_PATH."funcion-cartelera.php");
+        }
+
+        public function Pelicula(){
+            require_once(VIEWS_PATH."funcion-pelicula.php");
         }
 
     }

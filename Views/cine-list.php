@@ -2,22 +2,21 @@
  include('nav-bar.php');
  require_once("validate-session.php");
 ?>
-<div class="row">
-    <div class="col-8">
-        <h2 class="text-primary text-center">Cines</h2>
-    </div>
-    <div class="col-4">
-        <button 
-            class="btn btn-primary btn-block"
-            data-toggle="modal" 
-            data-target="#newCine"
-        >Nuevo Cine</button> 
-    </div>
-</div>
-
 <main class="min-vh-75 d-flex justify-content-center align-items-center">
 
     <div class="w-75">
+        <div class="row">
+            <div class="col-9">
+                <h2 class="text-primary text-center">CINES</h2>
+            </div>
+            <div class="col-3">
+                <button 
+                    class="btn btn-primary btn-block"
+                    data-toggle="modal" 
+                    data-target="#newCine"
+                >Nuevo Cine</button> 
+            </div>
+        </div>
         <div class="accordion" id="accordionExample">
 
             <?php 
@@ -33,7 +32,7 @@
                                 data-toggle="modal" 
                                 data-target="#newSala<?php echo $cine->getId(); ?>"
                             >
-                                Agregar sala
+                                Nueva sala
                             </button>
                         
                         
@@ -78,7 +77,7 @@
                                         <a 
                                             class="btn btn-outline-primary"
                                             href="<?php echo  FRONT_ROOT."Funcion/SetSala/".$sala->getIdCine() ?>"
-                                        >Nueva Pelicula</a>
+                                        >Nueva Funcion</a>
                                         <span>
                                             Sala: <span class="text-uppercase font-weight-bold text-monospace"><?php echo $sala->getNombre(); ?></span> 
                                         </span>

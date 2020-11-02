@@ -35,11 +35,7 @@ class PeliculaController
         {
             echo $genero;
             return $this->PeliculaDAO->getMoviesByGenresAndDate($pagina,$genero,$fecha_min,$fecha_max);
-        }
-
-        public function cartelera(){
-            require_once(VIEWS_PATH."pelicula-cartelera.php");
-        }
+        }       
 
         public function crear_pelicula ($id_pelicula, $nombre, $comentario, $poster, $foto, $fechaSalida, $duracion)
         {

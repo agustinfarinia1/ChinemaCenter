@@ -20,6 +20,11 @@ define("DB_NAME", "");
 define("DB_USER", "");
 define("DB_PASS", "");
 
+// Config Mail (gmail)
+
+define("USERNAME_MAIL","");
+define("PASSWORD_MAIL", "");
+
 ?>
 
 

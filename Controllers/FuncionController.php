@@ -66,5 +66,9 @@
             require_once(VIEWS_PATH."funcion-pelicula.php");
         }
 
+        public function Listar(){
+            require_once(VIEWS_PATH."funcion-list.php");
+        }
+
     }
 ?>

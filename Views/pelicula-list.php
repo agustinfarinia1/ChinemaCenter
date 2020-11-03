@@ -6,7 +6,9 @@ require_once("validate-session.php");
 ?>
 <div class="container">
     <div class="col-6 offset-3">
-        <button type="button" class="btn btn-danger btn-block">Actualizar el archivo de peliculas</button>
+        <button type="button" class="btn btn-danger btn-block" data-toggle="modal" data-target="#actualizarPeliculas">
+            Actualizar el archivo de peliculas
+        </button>
     </div>    
     <div class="row">
         <form class="form-inline d-flex justify-content-between col-12 my-3" action="<?php echo FRONT_ROOT."Pelicula/Index" ?>" method="POST">            
@@ -73,4 +75,27 @@ require_once("validate-session.php");
         ?>
         </div>
     </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="actualizarPeliculas" tabindex="-1" aria-labelledby="actualizarPeliculasLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content bg-danger">
+      <div class="modal-header">
+        <h3 class="modal-title" id="actualizarPeliculasLabel">Actulizar peliculas</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>
+            <strong>Precaucion:</strong> Esta operacion puede tardar unos minutos. Recuerde que se actualizan las peliculas de sus archivos con recursos externos
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-warning" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-outline-primary">Actualizar</button>
+      </div>
+    </div>
+  </div>
 </div>

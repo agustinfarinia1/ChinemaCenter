@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="<?php echo  FRONT_ROOT."Home/Index"?> ">ChinemaCenter</a>
+  <a class="navbar-brand" href="<?php echo  FRONT_ROOT."Funcion/Cartelera"?> ">ChinemaCenter</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -13,7 +13,7 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navAdministracion">
             <a class="dropdown-item" href="<?php echo  FRONT_ROOT."Cine/ShowListView"?>">Cines</a>
-            <a class="dropdown-item" href="#">Peliculas</a>
+            <a class="dropdown-item" href="<?php echo  FRONT_ROOT."Funcion/Listar"?>">Funciones</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">Estadisticas</a>
           </div>

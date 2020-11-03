@@ -23,7 +23,9 @@
             <ul class="list-group list-group-flush mb-4">               
                 <li class="list-group-item list-group-item-action list-group-item-primary d-flex justify-content-between align-items-center">
                     03/11 Martes
-                    <button class="btn btn-primary">Comprar</button>
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#comprarEntrada">
+                        Comprar
+                    </button>
                 </li>
                 <li class="list-group-item list-group-item-action list-group-item-primary d-flex justify-content-between align-items-center">
                     04/11 Mirecoles
@@ -54,5 +56,40 @@
             </ul>
         </div>
     </div>
-</div>        
+</div>  
+
+<!-- Modal -->
+<div class="modal fade" id="comprarEntrada" tabindex="-1" aria-labelledby="comprarEntradaLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title text-primary" id="comprarEntradaLabel">Confirmar compra</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-primary">
+                <div class="text-center">
+                    <span class="font-weight-bold">Fecha:</span> 16/11/2020 17:30
+                </div>
+                <div class="text-center">
+                    <span class="font-weight-bold">Cine:</span> Nombre del cine
+                </div>
+                <div class="text-center">
+                    <span class="font-weight-bold">Sala:</span> Nombre de la sala
+                </div>
+                <div class="text-center">
+                    <span class="font-weight-bold">Pelicula:</span> Titulo
+                </div> 
+                <div class="text-center">
+                    <span class="font-weight-bold">Costo:</span> $250
+                </div>                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary">Comprar</button>
+            </div>
+        </div>
+    </div>
+</div>
     

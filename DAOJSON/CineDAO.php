@@ -1,7 +1,7 @@
 <?php
     namespace DAOJSON;
 
-    use DAOJSON\ICineDAO as ICineDAO;
+    use Interfaces\ICineDAO as ICineDAO;
     use Models\Cine as Cine;
 
     class CineDAO implements ICineDAO

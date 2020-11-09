@@ -1,9 +1,8 @@
 <?php
     namespace Controllers;
 
-
-    //use DB\UserDAO as UserDAO;
-    use DAOJSON\UserDAO as UserDAO;
+    //use DAOJSON\UserDAO as UserDAO;
+    use DAODB\UserDAO as UserDAO;
     use Models\User as User;
     use Models\PHPMailer as PHPMailer;
     use Models\SMTP as SMTP;

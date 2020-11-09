@@ -1,5 +1,5 @@
 <?php
-    namespace DAOJSON;
+    namespace Interfaces;
 
     use Models\Cine as Cine;
 

@@ -1,13 +1,13 @@
 [
     {
         "userName": "admin@chinemacenter.com",
-        "password": "admin",
+        "password": "1234",
         "name":"admin",
         "rol":1
     },
     {
         "userName": "user@chinemacenter.com",
-        "password": "user",
+        "password": "1234",
         "name":"user",
         "rol":0
     }

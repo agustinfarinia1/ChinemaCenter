@@ -5,7 +5,7 @@
     // use DB\IUserDAO as IUserDAO;
 
 
-    use DAOJSON\IUserDAO as IUserDAO;
+    use Interfaces\IUserDAO as IUserDAO;
 
     use Models\User as User;
 

@@ -1,5 +1,5 @@
 <?php
-    namespace DAOJSON;
+    namespace Interfaces;
 
 // namespace DB;
 

@@ -1,6 +1,6 @@
 <?php 
 
-namespace DAOJSON;
+namespace Interfaces;
 
 interface IPeliculaDAO {
 

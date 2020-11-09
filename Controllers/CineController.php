@@ -1,11 +1,11 @@
 <?php
     namespace Controllers;
 
-
-    //use DAO\CineDAO as CineDAO;    
-    use DAOJSON\CineDAO as CineDAO;
-    use DAOJSON\SalaDAO as SalaDAO;
+   
     //use DAOJSON\CineDAO as CineDAO;
+    //use DAOJSON\SalaDAO as SalaDAO;
+    use DAODB\CineDAO as CineDAO;
+    use DAODB\SalaDAO as SalaDAO;
     use Models\Cine as Cine;
 
     class CineController

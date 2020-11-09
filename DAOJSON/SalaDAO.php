@@ -2,8 +2,9 @@
     namespace DAOJSON;
    
     use Models\Sala as Sala;
+    use Interfaces\ISalaDAO as ISalaDAO;
 
-    class SalaDAO
+    class SalaDAO implements ISalaDAO
     {
         private $salaList = array();
         private $fileName = ROOT."Data/Salas.json";

@@ -1,8 +1,10 @@
 <?php
     namespace Controllers;
 
-    use DAOJSON\CineDAO as CineDAO;
-    use DAOJSON\SalaDAO as SalaDAO;
+    // use DAOJSON\CineDAO as CineDAO;
+    // use DAOJSON\SalaDAO as SalaDAO;
+    use DAODB\CineDAO as CineDAO;
+    use DAODB\SalaDAO as SalaDAO;
     use Models\Sala as Sala;
 
     class SalaController

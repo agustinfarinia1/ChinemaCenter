@@ -19,5 +19,12 @@
         "nombre": "manola",
         "capacidad": "888",
         "precio": "999"
+    },
+    {
+        "id": 4,
+        "id_cine": "1",
+        "nombre": "tatin",
+        "capacidad": "25",
+        "precio": "233"
     }
 ]

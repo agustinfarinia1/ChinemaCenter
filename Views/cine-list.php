@@ -76,7 +76,7 @@
                                     <div class="d-flex justify-content-between align-items-center alert alert-info">
                                         <a 
                                             class="btn btn-outline-primary"
-                                            href="<?php echo  FRONT_ROOT."Funcion/SetSala/".$sala->getIdCine() ?>"
+                                            href="<?php echo  FRONT_ROOT."Funcion/SetSala/".$sala->getId() ?>"
                                         >Nueva Funcion</a>
                                         <span>
                                             Sala: <span class="text-uppercase font-weight-bold text-monospace"><?php echo $sala->getNombre(); ?></span> 

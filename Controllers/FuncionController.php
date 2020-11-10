@@ -1,17 +1,17 @@
 <?php
     namespace Controllers;
 
-    use DAOJSON\FuncionDAO as FuncionDAO;
+    use DAODB\FuncionDAO as FuncionDAO;
     use Models\Funcion as Funcion;
 
     class FuncionController
     {
         private $funcionDAO;
 
-        // public function __construct()
-        // {
-        //     $this->funcionDAO = new FuncionDAO();
-        // }
+        public function __construct()
+        {
+            $this->funcionDAO = new FuncionDAO();
+        }
 
         // public function Add($funcion)
         // {
@@ -46,16 +46,76 @@
             require_once(VIEWS_PATH."funcion-add.php");
         }
 
-        public function Add(){
+        public function Add($fechaInicio, $fechaFin, $horaInicio, $dia1='', $dia2='', $dia3='', $dia4='', $dia5='', $dia6='', $dia7=''){
 
-            //llamnar a la api y traer lo que dura la peli
+            require_once(VIEWS_PATH."validate-session.php");
+           
+            $funcion = new Funcion();
+            $funcion->setIdSala($_SESSION["sala"]);
+            $funcion->setIdPelicula($_SESSION["idPelicula"]);
+            $funcion->setFechaInicio($fechaInicio);
+            $funcion->setFechaFin($fechaFin);
+            $funcion->setHoraInicio($horaInicio);
+            $funcion->setHorafin(90);           
+            if($dia1 != ''){
+                $this->insertarDia($funcion, $dia1);
+            }
+            if($dia2 != ''){
+                $this->insertarDia($funcion, $dia2);
+            }
+            if($dia3 != ''){
+                $this->insertarDia($funcion, $dia3);
+            }
+            if($dia4 != ''){
+                $this->insertarDia($funcion, $dia4);
+            }
+            if($dia5 != ''){
+                $this->insertarDia($funcion, $dia5);
+            }
+            if($dia6 != ''){
+                $this->insertarDia($funcion, $dia6);
+            }
+            if($dia7 != ''){
+                $this->insertarDia($funcion, $dia7);
+            }
 
-            // calcular la hora de fin de la funcion
+            $funcionesList = $this->funcionDAO->comprobarDisponivilidad($funcion);
+            
+            if( count($funcionesList) > 0){
+                echo "<h1>Hay pelis </h1>";
+            }else{
+                $this->funcionDAO->Add($funcion);
+                require_once(VIEWS_PATH."funcion-cartelera.php");
+            }
 
-            //insertar en la BD
+        }
 
-            require_once(VIEWS_PATH."funcion-cartelera.php");
-
+        private function insertarDia(Funcion $funcion, $dia){
+            switch ($dia) {
+                case 'lunes':
+                    $funcion->setLunes(true);
+                    break;
+                case 'martes':
+                    $funcion->setMartes(true);
+                    break;
+                case 'miercoles':
+                    $funcion->setMiercoles(true);
+                    break;
+                case 'jueves':
+                    $funcion->setJueves(true);
+                    break;
+                case 'viernes':
+                    $funcion->setViernes(true);
+                    break;
+                case 'sabado':
+                    $funcion->setSabado(true);
+                    break;
+                case 'domingo':
+                    $funcion->setDomingo(true);
+                    break;                
+                default:                   
+                    break;
+            }
         }
 
         public function Cartelera(){

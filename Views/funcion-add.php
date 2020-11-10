@@ -38,7 +38,7 @@ require_once("validate-session.php");
                 <input 
                         type="date" 
                         class="form-control"
-                        name="fechainicio" 
+                        name="fechafin" 
                         id="fechaEntrada" 
                         value="<?php echo date("Y-m-d"); ?>"  
                         min="<?php echo date("Y-m-d"); ?>"
@@ -54,7 +54,7 @@ require_once("validate-session.php");
                     <input 
                         type="time" 
                         class="form-control"
-                        name="fechainicio" 
+                        name="hora" 
                         id="fechaEntrada" 
                         value="<?php echo date("H:i"); ?>"  
                     > 
@@ -65,39 +65,35 @@ require_once("validate-session.php");
            
             <div class="row d-flex justify-content-center">
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                    <label class="form-check-label" for="inlineCheckbox1">Lunes</label>
+                    <input class="form-check-input" type="checkbox" id="lunes" name="lunes" value="lunes">
+                    <label class="form-check-label" for="lunes">Lunes</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                    <label class="form-check-label" for="inlineCheckbox2">Martes</label>
+                    <input class="form-check-input" type="checkbox" id="martes" name="martes" value="martes">
+                    <label class="form-check-label" for="martes">Martes</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-                    <label class="form-check-label" for="inlineCheckbox3">Miercoles</label>
+                    <input class="form-check-input" type="checkbox" id="miercoles" name="miercoles" value="miercoles">
+                    <label class="form-check-label" for="miercoles">Miercoles</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-                    <label class="form-check-label" for="inlineCheckbox3">Jueves</label>
+                    <input class="form-check-input" type="checkbox" id="jueves" name="jueves" value="jueves">
+                    <label class="form-check-label" for="jueves">Jueves</label>
                 </div>
             </div>
             <div class="row d-flex justify-content-center mb-2">
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                    <label class="form-check-label" for="inlineCheckbox1">Viernes</label>
+                    <input class="form-check-input" type="checkbox" id="viernes" name="viernes" value="viernes">
+                    <label class="form-check-label" for="viernes">Viernes</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                    <label class="form-check-label" for="inlineCheckbox2">Sabado</label>
+                    <input class="form-check-input" type="checkbox" id="sabado" name="sabado" value="sabado">
+                    <label class="form-check-label" for="sabado">Sabado</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-                    <label class="form-check-label" for="inlineCheckbox3">Domingo</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-                    <label class="form-check-label" for="inlineCheckbox3">Todos</label>
-                </div>
+                    <input class="form-check-input" type="checkbox" id="domingo" name="domingo" value="domingo">
+                    <label class="form-check-label" for="domingo">Domingo</label>
+                </div>               
             </div>
 
             <button 

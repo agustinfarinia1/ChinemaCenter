@@ -36,7 +36,7 @@ class FuncionDAO
 
     //Si la funcion que se quiere insertar se superpone en dia u horario con funciones ya existentes,
     // este metodo retorna las funciones con las que se superpondria 
-    public function comprobarDisponivilidad(Funcion $funcion)
+    public function comprobarDisponibilidad(Funcion $funcion)
     {
         //SELECT * FROM funciones WHERE fecha_inicio <= "2020-11-22" AND fecha_fin >=  "2020-11-10" AND hora_inicio <= "18:00" AND hora_fin >= "17:00" AND (lunes = 1 OR martes = 0 OR miercoles = 1 OR jueves = 0 OR viernes = 1 OR sabado = 0 OR domingo = 0);
         $query = "SELECT * FROM " . $this->tableName . " WHERE fecha_inicio <= :fechaFin AND fecha_fin >= :fechaInicio AND hora_inicio <= :horaFin AND hora_fin >= :horaInicio AND (lunes = :lunes OR martes = :martes OR miercoles = :miercoles OR jueves = :jueves OR viernes = :viernes OR sabado = :sabado OR domingo = :domingo)";           
@@ -61,17 +61,17 @@ class FuncionDAO
         {
             $f = new Funcion();
             $f->setIdSala($row["id_sala"]);
-            // $f->setFechaInicio($row["id_sala"]);
-            // $f->setFechaFin($row["id_sala"]); 
-            // $f->setHoraInicio($row["id_sala"]);
-            // $f->setHoraFin($row["id_sala"]); 
-            // $f->setLunes($row["id_sala"]);
-            // $f->setMartes(); 
-            // $f->setMiercoles($row["id_sala"]);
-            // $f->setJueves($row["id_sala"]); 
-            // $f->setViernes($row["id_sala"]);
-            // $f->setSabado(); 
-            // $f>gstDomingo($row["id_sala"]);
+            $f->setFechaInicio($row["fecha_inicio"]);
+            $f->setFechaFin($row["fecha_fin"]); 
+            $f->setHoraInicio($row["hora_inicio"]);
+            $f->setHoraFin($row["hora_fin"]); 
+            $f->setLunes($row["lunes"]);
+            $f->setMartes($row["martes"]); 
+            $f->setMiercoles($row["miercoles"]);
+            $f->setJueves($row["jueves"]); 
+            $f->setViernes($row["viernes"]);
+            $f->setSabado($row["sabado"]); 
+            $f->setDomingo($row["domingo"]);
           
             array_push($this->funcionesList, $f);
         } 

@@ -83,7 +83,12 @@
             return $this->horaFin;
         }
 
-        public function setHoraFin($duracion = 120)
+        public function setHoraFin($horaFin)
+        {           
+            $this->horaFin = $horaFin;
+        }
+
+        public function calcularHoraFin($duracion = 120)
         {           
             $this->horaFin = date("H:i",strtotime($this->getHoraInicio()."+". $duracion ."minutes"));
         }

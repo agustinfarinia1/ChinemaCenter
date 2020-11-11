@@ -2,9 +2,64 @@
 
 include('nav-bar.php');
 require_once("validate-session.php");
-
+if(!isset($funcionesList)) $funcionesList=[];
 ?>
 
+<?php if( count($funcionesList) > 0){ ?>
+<div class="row">
+    <div class="col-8 offset-2 mt-3">
+        <div class="alert alert-danger" role="alert">
+            <strong>Advertencia!!</strong> Intenta agregar una funcion que superpone a otras
+        </div>
+    </div>
+</div>
+<?php } ?>
+<?php foreach($funcionesList as $funcion){ ?>
+    <div class="row">
+        <div class="col-8 offset-2 mt-3">
+            <div class="list-group-item list-group-item-action list-group-item-info">
+                <div class="text-center">
+                    Cine: Nombre | 
+                    Sala: <?php echo $_SESSION["sala"];?> | 
+                    Desde: <?php $desde = date_create_from_format('Y-m-d', $funcion->getFechaInicio()); echo date_format($desde, "d/m/Y"); ?> |
+                    Hasta: <?php $hasta = date_create_from_format('Y-m-d', $funcion->getFechaFin()); echo date_format($hasta, "d/m/Y"); ?> |
+                    Inicio: <?php $inicio = date_create_from_format('H:i:s', $funcion->getHoraInicio()); echo date_format($inicio, "H:i"); ?> |
+                    Fin: <?php $fin = date_create_from_format('H:i:s', $funcion->getHoraFin()); echo date_format($fin, "H:i"); ?>    
+                </div>
+                <div class="text-center">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="lunes" <?php if($funcion->getLunes()) echo "checked" ?> disabled>
+                        <label class="form-check-label" for="lunes">Lunes</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="martes" <?php if($funcion->getMartes()) echo "checked" ?> disabled>
+                        <label class="form-check-label" for="martes">Martes</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="miercoles" <?php if($funcion->getMiercoles()) echo "checked" ?> disabled>
+                        <label class="form-check-label" for="miercoles">Miercoles</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="jueves" <?php if($funcion->getJueves()) echo "checked" ?> disabled>
+                        <label class="form-check-label" for="jueves">Jueves</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="viernes" <?php if($funcion->getViernes()) echo "checked" ?> disabled>
+                        <label class="form-check-label" for="viernes">Viernes</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="sabado" <?php if($funcion->getSabado()) echo "checked" ?> disabled>
+                        <label class="form-check-label" for="sabado">Sabado</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="domingo" <?php if($funcion->getDomingo()) echo "checked" ?> disabled>
+                        <label class="form-check-label" for="domingo">Domingo</label>
+                    </div>
+                </div>                                         
+            </div>
+        </div>
+    </div>
+<?php } ?>
 
 <main class="min-vh-100 d-flex align-items-center justify-content-center">
 

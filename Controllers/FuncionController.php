@@ -49,6 +49,8 @@
         public function Add($fechaInicio, $fechaFin, $horaInicio, $dia1='', $dia2='', $dia3='', $dia4='', $dia5='', $dia6='', $dia7=''){
 
             require_once(VIEWS_PATH."validate-session.php");
+
+            //$pelicula = $this->peliculanDAO->obtenerPeliculaPorId($_SESSION["idPelicula"]);
            
             $funcion = new Funcion();
             $funcion->setIdSala($_SESSION["sala"]);
@@ -56,7 +58,8 @@
             $funcion->setFechaInicio($fechaInicio);
             $funcion->setFechaFin($fechaFin);
             $funcion->setHoraInicio($horaInicio);
-            $funcion->setHorafin(90);           
+            //$funcion->calcularHorafin($pelicula->getDuracion());
+            $funcion->calcularHorafin(90);            
             if($dia1 != ''){
                 $this->insertarDia($funcion, $dia1);
             }
@@ -79,12 +82,12 @@
                 $this->insertarDia($funcion, $dia7);
             }
 
-            $funcionesList = $this->funcionDAO->comprobarDisponivilidad($funcion);
+            $funcionesList = $this->funcionDAO->comprobarDisponibilidad($funcion);
             
             if( count($funcionesList) > 0){
-                echo "<h1>Hay pelis </h1>";
+                require_once(VIEWS_PATH."funcion-add.php");
             }else{
-                $this->funcionDAO->Add($funcion);
+                $funcionesList = $this->funcionDAO->Add($funcion);
                 require_once(VIEWS_PATH."funcion-cartelera.php");
             }
 

@@ -31,8 +31,6 @@ CREATE TABLE cines (
 INSERT INTO cines ( nombre, direccion) VALUES ('tato', 'lalala');
 INSERT INTO cines ( nombre, direccion) VALUES ('pepe', 'tututu');
 
-SELECT * FROM cines;
-
 CREATE TABLE salas (
   id_sala int NOT NULL AUTO_INCREMENT,
   id_cine int NOT NULL,

@@ -72,13 +72,13 @@ if(!isset($funcionesList)) $funcionesList=[];
            
         <form action="<?php echo FRONT_ROOT."Funcion/Add" ?>" method="POST" class="mt-4">
             <div class="form-group row">
-                <label for="fechaEntrada"  class="col-sm-4 col-form-label">Fecha de Inicio</label>
+                <label for="fechaInicio"  class="col-sm-4 col-form-label">Fecha de Inicio</label>
                 <div class="col-sm-8">
                     <input 
                         type="date" 
                         class="form-control"
                         name="fechainicio" 
-                        id="fechaEntrada" 
+                        id="fechainicio" 
                         value="<?php echo date("Y-m-d"); ?>"  
                         min="<?php echo date("Y-m-d"); ?>"
                     >     
@@ -88,13 +88,13 @@ if(!isset($funcionesList)) $funcionesList=[];
             <hr class="border-bottom" />
 
             <div class="form-group row">
-                <label for="fechaEntrada"  class=" col-sm-4 col-form-label">Fecha de fin</label>
+                <label for="fechafin"  class=" col-sm-4 col-form-label">Fecha de fin</label>
                 <div class="col-sm-8">
                 <input 
                         type="date" 
                         class="form-control"
                         name="fechafin" 
-                        id="fechaEntrada" 
+                        id="fechafin" 
                         value="<?php echo date("Y-m-d"); ?>"  
                         min="<?php echo date("Y-m-d"); ?>"
                     >        
@@ -104,13 +104,13 @@ if(!isset($funcionesList)) $funcionesList=[];
             <hr class="border-bottom" />
 
             <div class="form-group row">
-                <label for="fechaEntrada"  class=" col-sm-4 col-form-label">Hora</label>
+                <label for="hora"  class=" col-sm-4 col-form-label">Hora</label>
                 <div class="col-sm-8">
                     <input 
                         type="time" 
                         class="form-control"
                         name="hora" 
-                        id="fechaEntrada" 
+                        id="hora" 
                         value="<?php echo date("H:i"); ?>"  
                     > 
                 </div>               

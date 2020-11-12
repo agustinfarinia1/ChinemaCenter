@@ -12,35 +12,82 @@ class FuncionDAO
     private $funcionesList = array(); 
 
     public function getAll()
+    {
+        $query = "CALL SP_FUN_GET_ALL()";
+
+        $this->connection = Connection::GetInstance();
+
+        $results = $this->connection->Execute($query,array(),QueryType::StoredProcedure);
+
+        foreach($results as $row)
         {
-            $query = "CALL SP_FUN_GET_ALL()";
+            $f = new Funcion();
+            $f->setIdFuncion($row["id_funcion"]);
+            $f->setIdSala($row["id_sala"]);
+            $f->setFechaInicio($row["fecha_inicio"]);
+            $f->setFechaFin($row["fecha_fin"]); 
+            $f->setHoraInicio($row["hora_inicio"]);
+            $f->setHoraFin($row["hora_fin"]); 
+            $f->setLunes($row["lunes"]);
+            $f->setMartes($row["martes"]); 
+            $f->setMiercoles($row["miercoles"]);
+            $f->setJueves($row["jueves"]); 
+            $f->setViernes($row["viernes"]);
+            $f->setSabado($row["sabado"]); 
+            $f->setDomingo($row["domingo"]);
+            $f->setEstreno($row["estreno"]);
+            $f->setNombreCine($row["nombre_cine"]);
+            $f->setNombreSala($row["nombre_sala"]);
+            $f->setNombrePelicula($row["nombre_pelicula"]);
+            $f->setFoto($row["foto"]);
+            $f->setPoster($row["poster"]);
+            $f->setComentario($row["comentario"]);
+        
+            array_push($this->funcionesList, $f);
+        } 
+        
+        return $this->funcionesList;
+    }
 
-            $this->connection = Connection::GetInstance();
+    public function getPorId($id)
+    {
+        $query = "CALL SP_FUN_GET_X_ID(:idFuncion)";
 
-            $results = $this->connection->Execute($query,array(),QueryType::StoredProcedure);
+        $parameters["idFuncion"] =  $id;
 
-            foreach($results as $row)
-            {
-                $f = new Funcion();
-                $f->setIdFuncion($row["id_funcion"]);
-                $f->setIdSala($row["id_sala"]);
-                $f->setFechaInicio($row["fecha_inicio"]);
-                $f->setFechaFin($row["fecha_fin"]); 
-                $f->setHoraInicio($row["hora_inicio"]);
-                $f->setHoraFin($row["hora_fin"]); 
-                $f->setLunes($row["lunes"]);
-                $f->setMartes($row["martes"]); 
-                $f->setMiercoles($row["miercoles"]);
-                $f->setJueves($row["jueves"]); 
-                $f->setViernes($row["viernes"]);
-                $f->setSabado($row["sabado"]); 
-                $f->setDomingo($row["domingo"]);
-            
-                array_push($this->funcionesList, $f);
-            } 
-            
-            return $this->funcionesList;
-        }
+        $this->connection = Connection::GetInstance();
+
+        $results = $this->connection->Execute($query,$parameters);
+
+        foreach($results as $row)
+        {
+            $f = new Funcion();
+            $f->setIdFuncion($row["id_funcion"]);
+            $f->setIdSala($row["id_sala"]);
+            $f->setFechaInicio($row["fecha_inicio"]);
+            $f->setFechaFin($row["fecha_fin"]); 
+            $f->setHoraInicio($row["hora_inicio"]);
+            $f->setHoraFin($row["hora_fin"]); 
+            $f->setLunes($row["lunes"]);
+            $f->setMartes($row["martes"]); 
+            $f->setMiercoles($row["miercoles"]);
+            $f->setJueves($row["jueves"]); 
+            $f->setViernes($row["viernes"]);
+            $f->setSabado($row["sabado"]); 
+            $f->setDomingo($row["domingo"]);
+            $f->setEstreno($row["estreno"]);
+            $f->setNombreCine($row["nombre_cine"]);
+            $f->setNombreSala($row["nombre_sala"]);
+            $f->setNombrePelicula($row["nombre_pelicula"]);
+            $f->setFoto($row["foto"]);
+            $f->setPoster($row["poster"]);
+            $f->setComentario($row["comentario"]);
+        
+            array_push($this->funcionesList, $f);
+        } 
+        
+        return $this->funcionesList;
+    }
     
     public function Add(Funcion $funcion)
     {

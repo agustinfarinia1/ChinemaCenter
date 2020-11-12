@@ -10,33 +10,32 @@ require_once("validate-session.php");
         <div class="w-75">
 
             <div id="carouselExampleIndicators" class="carousel slide mb-2" data-ride="carousel">
-                <ol class="carousel-indicators">
+                <!-- <ol class="carousel-indicators">
                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                </ol>
+                </ol> -->
                 <div class="carousel-inner">
-                  <div class="carousel-item active">
-                        <img src="https://image.tmdb.org/t/p/w500/5UkzNSOK561c2QRy2Zr4AkADzLT.jpg" class="d-block w-100" style="height: 300px;object-fit: cover;" alt="...">
+                    <?php $funcion = array_shift($funcionesList) ?>
+                    <div class="carousel-item active">
+                        <img src="https://image.tmdb.org/t/p/w500<?php echo $funcion->getFoto(); ?>" class="d-block w-100" style="height: 300px;object-fit: cover;" alt="<?php echo $funcion->getNombrePelicula(); ?>">
                         <div class="carousel-caption d-none d-md-block">
-                            <a class="btn btn-outline-info" href="<?php echo  FRONT_ROOT."Funcion/Pelicula"?>">Titulo de la pelicula</a>
-                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                            <a class="btn btn-info" href="<?php echo  FRONT_ROOT. "Funcion/getFuncionPorId/" . $funcion->getIdFuncion()?>"><?php echo $funcion->getNombrePelicula(); ?></a>
+                            <p><?php echo $funcion->getComentario(); ?></p>
                         </div>
                     </div>
-                    <div class="carousel-item">
-                        <img src="https://image.tmdb.org/t/p/w500/xoqr4dMbRJnzuhsWDF3XNHQwJ9x.jpg" class="d-block w-100" style="height: 300px;object-fit: cover;" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                            <a class="btn btn-outline-primary" href="<?php echo  FRONT_ROOT."Funcion/Pelicula"?>">Titulo de la pelicula</a>
-                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="https://image.tmdb.org/t/p/w500/86L8wqGMDbwURPni2t7FQ0nDjsH.jpg" class="d-block w-100" style="height: 300px;object-fit: cover;" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                            <a class="btn btn-info" href="<?php echo  FRONT_ROOT."Funcion/Pelicula"?>">Titulo de la pelicula</a>
-                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                        </div>
-                    </div>
+                    <?php foreach($funcionesList as $funcion){ ?>
+                        <?php if($funcion->getEstreno() == 1){ ?>
+                            <div class="carousel-item">
+                                <img src="https://image.tmdb.org/t/p/w500<?php echo $funcion->getFoto(); ?>" class="d-block w-100" style="height: 300px;object-fit: cover;" alt="<?php echo $funcion->getNombrePelicula(); ?>">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <a class="btn btn-info" href="<?php echo  FRONT_ROOT."Funcion/getFuncionPorId/" . $funcion->getIdFuncion()?>"><?php echo $funcion->getNombrePelicula(); ?></a>
+                                    <p><?php echo $funcion->getComentario(); ?></p>
+                                </div>
+                            </div>
+                        <?php } ?>
+                    <?php } ?>
+                    
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -48,28 +47,19 @@ require_once("validate-session.php");
                 </a>
             </div>
 
-            <div class="row"><!-- Lista de peliculas -->                
-
-                <div class="col-3 my-2 slide-top1">
-                    <img src="https://image.tmdb.org/t/p/w500/zGVbrulkupqpbwgiNedkJPyQum4.jpg" class="img-fluid rounded" alt="">
-                    <button type="button" class="btn btn-link btn-block">Titulo de la peli</button>
-                </div>
-
-                <div class="col-3 my-2 slide-top2">
-                    <img src="https://image.tmdb.org/t/p/w500/kiX7UYfOpYrMFSAGbI6j1pFkLzQ.jpg" class="img-fluid rounded" alt="">
-                    <a class="btn btn-link btn-block" href="<?php echo  FRONT_ROOT."Funcion/Pelicula"?>">Titulo de la peli</a>
-                </div>
-
-                
-                <div class="col-3 my-2 slide-top3">
-                    <img src="https://image.tmdb.org/t/p/w500/ltyARDw2EFXZ2H2ERnlEctXPioP.jpg" class="img-fluid rounded" alt="">
-                    <a class="btn btn-link btn-block" href="<?php echo  FRONT_ROOT."Funcion/Pelicula"?>">Titulo de la peli</a>
-                </div>
-
-                <div class="col-3 my-2 slide-top4">
-                    <img src="https://image.tmdb.org/t/p/w500/zGVbrulkupqpbwgiNedkJPyQum4.jpg" class="img-fluid rounded" alt="">
-                    <a class="btn btn-link btn-block" href="<?php echo  FRONT_ROOT."Funcion/Pelicula"?>">Titulo de la peli</a>
-                </div>
+            <div class="row"><!-- Lista de peliculas --> 
+                <?php $i = 1; ?>
+                <?php foreach($funcionesList as $funcion){ ?>
+                    <?php if($funcion->getEstreno() == 0){ ?>
+                        <?php if($i < 5){$i++;}else{$i = 1;} ?>
+                        <div class="col-3 my-2 slide-top<?php echo $i; ?>">
+                            <img src="https://image.tmdb.org/t/p/w500<?php echo $funcion->getPoster(); ?>" class="img-fluid rounded" alt="<?php echo $funcion->getNombrePelicula(); ?>">
+                            <a class="btn btn-link btn-block" href="<?php echo  FRONT_ROOT."Funcion/getFuncionPorId/" . $funcion->getIdFuncion()?>"><?php echo $funcion->getNombrePelicula(); ?></a>
+                        </div>
+                        
+                    <?php } ?>
+                <?php } ?>
+               
 
             </div><!-- Fin lista de peliculas -->
             

@@ -8,6 +8,7 @@ use DAODB\Connection as Connection;
 class PeliculaDAO
 {
     private $connection;
+    private $fileName = ROOT."Data/Peliculas.json";
 
 
     function __construct()
@@ -137,5 +138,68 @@ class PeliculaDAO
         $api = file_get_contents("https://api.themoviedb.org/3/movie/now_playing?with_genres=$genero&primary_release_date.gte=$fecha_min&primary_release_date.lte=$fecha_max&api_key=" . API_KEY, true);
         $data = json_decode($api);  // Construye un array con el JSON
         return $data->{'total_pages'};  // Devuelve el valor de la key con los resultados por paginas
+    }
+
+    public function retrieveData()
+    {            
+        $arreglo = array();
+
+        if(file_exists($this->fileName))
+        {
+            $jsonToDecode = file_get_contents($this->fileName);
+
+            $contentArray = ($jsonToDecode) ? json_decode($jsonToDecode, true) : array();
+             
+            foreach($contentArray as $content)
+            {
+                $pelicula = new Pelicula();
+                $pelicula->setId($content["id_pelicula"]);
+                $pelicula->setNombre($content["nombre"]);
+                $pelicula->setComentario($content["comentario"]);
+                $pelicula->setPoster($content["poster"]);
+                $pelicula->setFoto($content["foto"]);
+                $pelicula->setFechaSalida($content["fechaSalida"]);
+                $pelicula->setDuracion($content["duracion"]);
+                $pelicula->setGeneros(json_decode($content["generos"]));
+
+                array_push($arreglo, $pelicula);
+            }
+        }
+        return $arreglo;
+    }
+
+    public function add($idPelicula){
+        $arreglo = $this->retrieveData();
+        foreach($arreglo as $pelicula){
+            if($pelicula->getId() == $idPelicula){
+
+                $sql = "INSERT INTO peliculas (id_pelicula,nombre,comentario,poster,foto,fecha_salida,duracion) VALUES (:id_pelicula, :nombre, :comentario, :poster, :foto, :fechaSalida, :duracion)";
+                
+                $parameters['id_pelicula'] = $pelicula->getID();
+                $parameters['nombre'] = $pelicula->getNombre();
+                $parameters['comentario'] = $pelicula->getComentario();
+                $parameters['poster'] = $pelicula->getPoster();
+                $parameters['foto'] = $pelicula->getFoto();
+                $parameters['fechaSalida'] = $pelicula->getFechaSalida();
+                $parameters['duracion'] = $pelicula->getDuracion();        
+                $this->connection = Connection::getInstance();    
+                $this->connection->ExecuteNonQuery($sql, $parameters);
+
+                // $query = "CALL SP_PELI_ADD(:idPelicula, :nombre, :comentario, :poster, :foto, :fechaSalida, :duracion)";
+
+                // $parameters["idPelicula"] = $pelicula->getId();
+                // $parameters["nombre"] = $pelicula->getNombre();
+                // $parameters["comentario"] = $pelicula->getComentario();
+                // $parameters["poster"] = $pelicula->getPoster();
+                // $parameters["foto"] = $pelicula->getFoto();
+                // $parameters["fechaSalida"] = $pelicula->getFechaSalida();
+                // $parameters["duracion"] = $pelicula->getDuracion();               
+    
+                // $this->connection = Connection::GetInstance();
+    
+                // $this->connection->ExecuteNonQuery($query, $parameters,QueryType::StoredProcedure);
+            }
+        }
+        return false;
     }
 }

@@ -16,10 +16,9 @@
         </button>
       </div>
       <div class="modal-body text-secondary">
-        <h5>Cine: <?php echo "Nombre"; ?></h5>
-        <h5>Sala: <?php echo $funcion->getIdSala(); ?></h5>
-        <h5>Pelicula: <?php echo "Nombre"; ?></h5>
-        <h5>Id Funcion: <?php echo $funcion->getIdFuncion(); ?></h5>
+        <h5>Cine: <?php echo $funcion->getNombreCine(); ?></h5>
+        <h5>Sala: <?php echo $funcion->getNombreSala(); ?></h5>
+        <h5>Pelicula: <?php echo $funcion->getNombrePelicula(); ?></h5>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-info" data-dismiss="modal">Cancelar</button>

@@ -28,7 +28,7 @@
       <!-- <li class="nav-item">
         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
       </li> -->
-      <li class="nav-item dropdown">
+      <!-- <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navPeliculas" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Peliculas
         </a>
@@ -45,7 +45,7 @@
           <a class="dropdown-item" href="<?php echo  FRONT_ROOT."Funcion/Pelicula"?>">Pelicula 10</a>
           <a class="dropdown-item" href="<?php echo  FRONT_ROOT."Funcion/Pelicula"?>">Pelicula 11</a>
         </div>
-      </li> 
+      </li>  -->
     </ul>
     <!-- <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">

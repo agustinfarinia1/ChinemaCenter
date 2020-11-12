@@ -2,15 +2,18 @@
     namespace Controllers;
 
     use DAODB\FuncionDAO as FuncionDAO;
+    use DAODB\PeliculaDAO as PeliculaDAO;
     use Models\Funcion as Funcion;
 
     class FuncionController
     {
         private $funcionDAO;
+        private $peliculaDAO;
 
         public function __construct()
         {
             $this->funcionDAO = new FuncionDAO();
+            $this->peliculaDAO = new PeliculaDAO();
         }      
 
         public function getAll($op=-1){
@@ -18,7 +21,14 @@
             $funcionesList = $this->funcionDAO->getAll();
 
             require_once(VIEWS_PATH."funcion-list.php");
-        }       
+        } 
+        
+        public function getFuncionPorId($id){
+            
+            $funcionesList = $this->funcionDAO->getPorId($id);
+            $funcion = $funcionesList[0];
+            require_once(VIEWS_PATH."funcion-pelicula.php");
+        }  
 
         public function SetSala($idSala)
         {           
@@ -34,9 +44,7 @@
 
         public function Add($fechaInicio, $fechaFin, $horaInicio, $dia1='', $dia2='', $dia3='', $dia4='', $dia5='', $dia6='', $dia7=''){
 
-            require_once(VIEWS_PATH."validate-session.php");
-
-            //$pelicula = $this->peliculanDAO->obtenerPeliculaPorId($_SESSION["idPelicula"]);
+            require_once(VIEWS_PATH."validate-session.php");            
            
             $funcion = new Funcion();
             $funcion->setIdSala($_SESSION["sala"]);
@@ -72,9 +80,11 @@
             
             if( count($funcionesList) > 0){
                 require_once(VIEWS_PATH."funcion-add.php");
-            }else{
+            }else{               
+                $this->peliculaDAO->add($_SESSION["idPelicula"]);
                 $funcionesList = $this->funcionDAO->Add($funcion);
-                require_once(VIEWS_PATH."funcion-cartelera.php");
+                //require_once(VIEWS_PATH."funcion-cartelera.php");
+                header('Location:Cartelera');
             }
 
         }
@@ -157,7 +167,7 @@
                 header('Location:getAll/1');
             }else{
                 $funcionesList = $this->funcionDAO->edit($funcion);
-                require_once(VIEWS_PATH."funcion-cartelera.php");
+                header('Location:getAll');
             }  
                      
         }

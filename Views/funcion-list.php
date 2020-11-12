@@ -26,7 +26,7 @@
                     </div>
                     <div class="col-8 text-center">
                         <h4>
-                            nombre de la pelicula
+                            <?php echo $funcion->getNombrePelicula(); ?>
                         </h4>
                     </div>
                     <div class="col-1">
@@ -52,8 +52,8 @@
                         </div>
                     </div>            
                     <div class="col-12 text-center">
-                        <strong>Cine:</strong> Nombre | 
-                        <strong>Sala:</strong> <?php echo $funcion->getIdSala();?> | 
+                        <strong>Cine:</strong> <?php echo $funcion->getNombreCine();?> | 
+                        <strong>Sala:</strong> <?php echo $funcion->getNombreSala();?> | 
                         <strong>Desde:</strong> <?php $desde = date_create_from_format('Y-m-d', $funcion->getFechaInicio()); echo date_format($desde, "d/m/Y"); ?> |
                         <strong>Hasta:</strong> <?php $hasta = date_create_from_format('Y-m-d', $funcion->getFechaFin()); echo date_format($hasta, "d/m/Y"); ?> |
                         <strong>Inicio:</strong> <?php $inicio = date_create_from_format('H:i:s', $funcion->getHoraInicio()); echo date_format($inicio, "H:i"); ?> |

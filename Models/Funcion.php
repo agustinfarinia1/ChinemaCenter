@@ -17,6 +17,13 @@
         private $viernes;
         private $sabado;
         private $domingo;
+        private $estreno;
+        private $nombreCine;
+        private $nombreSala;
+        private $nombrePelicula;
+        private $foto;
+        private $poster;
+        private $comentario;
 
         public function getIdFuncion()
         {
@@ -161,6 +168,76 @@
         public function setDomingo($domingo)
         {
             $this->domingo = $domingo;
+        }
+
+        public function getEstreno()
+        {
+            return $this->estreno;
+        }
+
+        public function setEstreno($estreno)
+        {
+            $this->estreno = $estreno;
+        }
+
+        public function getNombreCine()
+        {
+            return $this->nombreCine;
+        }
+
+        public function setNombreCine($nombreCine)
+        {
+            $this->nombreCine = $nombreCine;
+        }
+
+        public function getNombreSala()
+        {
+            return $this->nombreSala;
+        }
+
+        public function setNombreSala($nombreSala)
+        {
+            $this->nombreSala = $nombreSala;
+        }
+
+        public function getNombrePelicula()
+        {
+            return $this->nombrePelicula;
+        }
+
+        public function setNombrePelicula($nombrePelicula)
+        {
+            $this->nombrePelicula = $nombrePelicula;
+        }
+
+        public function getFoto()
+        {
+            return $this->foto;
+        }
+
+        public function setFoto($foto)
+        {
+            $this->foto = $foto;
+        }
+
+        public function getPoster()
+        {
+            return $this->poster;
+        }
+
+        public function setPoster($poster)
+        {
+            $this->poster = $poster;
+        }
+
+        public function getComentario()
+        {
+            return $this->comentario;
+        }
+
+        public function setComentario($comentario)
+        {
+            $this->comentario = $comentario;
         }
 
        

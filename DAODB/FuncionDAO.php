@@ -71,7 +71,7 @@ class FuncionDAO
     public function comprobarDisponibilidad(Funcion $funcion)
     {
         //SELECT * FROM funciones WHERE fecha_inicio <= "2020-11-22" AND fecha_fin >=  "2020-11-10" AND hora_inicio <= "18:00" AND hora_fin >= "17:00" AND (lunes = 1 OR martes = 0 OR miercoles = 1 OR jueves = 0 OR viernes = 1 OR sabado = 0 OR domingo = 0);
-        $query = "SELECT * FROM " . $this->tableName . " WHERE fecha_inicio <= :fechaFin AND fecha_fin >= :fechaInicio AND hora_inicio <= :horaFin AND hora_fin >= :horaInicio AND (lunes = :lunes OR martes = :martes OR miercoles = :miercoles OR jueves = :jueves OR viernes = :viernes OR sabado = :sabado OR domingo = :domingo) AND id_funcion <> :idFuncion";           
+        $query = "SELECT * FROM " . $this->tableName . " WHERE fecha_inicio <= :fechaFin AND fecha_fin >= :fechaInicio AND hora_inicio <= :horaFin AND hora_fin >= :horaInicio AND (lunes = :lunes OR martes = :martes OR miercoles = :miercoles OR jueves = :jueves OR viernes = :viernes OR sabado = :sabado OR domingo = :domingo) AND id_funcion <> :idFuncion AND estado=1";           
 
         $parameters["idFuncion"] =  ($funcion->getIdFuncion()) ? $funcion->getIdFuncion() : -1;
         $parameters["fechaInicio"] =  $funcion->getFechaInicio();

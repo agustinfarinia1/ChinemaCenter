@@ -163,6 +163,9 @@
         }
 
         public function Cartelera(){
+
+            $funcionesList = $this->funcionDAO->getAll();
+            
             require_once(VIEWS_PATH."funcion-cartelera.php");
         }
 

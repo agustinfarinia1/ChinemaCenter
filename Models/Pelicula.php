@@ -10,6 +10,7 @@
         private $foto;
         private $fechaSalida;
         private $duracion;
+        private array $generos;
 
         public function __construct($id_pelicula = '', $nombre = '', $comentario = '', $poster = '', $foto = '',$fechaSalida = '', $duracion = '')
     {
@@ -25,12 +26,12 @@
 
         public function getId()
         {
-            return $this->id;
+            return $this->id_pelicula;
         }
     
-        public function setId($id)
+        public function setId($id_pelicula)
         {
-            $this->id= $id;
+            $this->id_pelicula= $id_pelicula;
         }
 
         public function getNombre()
@@ -55,12 +56,12 @@
 
         public function getPoster()
         {
-            return $this->Poster;
+            return $this->poster;
         }
 
-        public function setPoster($Poster)
+        public function setPoster($poster)
         {
-            $this->Poster = $Poster;
+            $this->poster = $poster;
         }
 
         public function getFoto()
@@ -83,24 +84,34 @@
             $this->fechaSalida = $fechaSalida;
         }
 
-        public function getID_Pelicula()
-        {
-            return $this->id_pelicula;
-        }
-
-        public function setID_Pelicula($id_pelicula)
-        {
-            $this->id_pelicula = $id_pelicula;
-        }
-
         public function getDuracion()
         {
-            return $this->nombre;
+            return $this->duracion;
         }
 
-        public function setDuracion($duracion)
+        public function setDuracion()
         {
-            $this->duracion = $duracion;
+            $this->duracion = 200;
+            
+            /*  try{
+                $api = file_get_contents('https://api.themoviedb.org/3/movie/'.$idPelicula.'?api_key='.API_KEY, true);
+                $data = json_decode($api);
+                $this->duracion = ($data->{'runtime'} > 0) ? $data->{'runtime'} : 150 ;
+            }
+            catch(Exception $e){
+                echo $e;
+            } */
+
+        }
+
+        public function setGeneros($generos)
+        {
+            $this->generos = $generos;
+        }
+
+        public function getGeneros()
+        {
+            return $this->generos;
         }
     }
 ?>

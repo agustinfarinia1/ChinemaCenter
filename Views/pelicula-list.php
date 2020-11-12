@@ -2,6 +2,9 @@
 
 include('nav-bar.php');
 require_once("validate-session.php");
+use Controllers\PeliculaController as PeliculaController;
+
+$controller = new PeliculaController();
 
 ?>
 <div class="container">
@@ -16,8 +19,9 @@ require_once("validate-session.php");
                 <label class="my-1 mr-2" for="genero">Genero</label>
                 <select class="custom-select my-1 mr-sm-2" id="genero" name="genero">
                     <?php
+
+                    $pagina = 1;
                         foreach ($this->generos as $genero) {
-                    
                         echo "<option value= " .$genero->getIdGenero(). ">" .$genero->getGenero(). "</option>";
                     
                         }
@@ -39,8 +43,16 @@ require_once("validate-session.php");
         </form>
 
         <div class="row">  
-        <?php foreach($this->peliculas as $pelicula) { ?>
+        <?php 
+            $i=0;
             
+        foreach($this->pagina as $pelicula) { 
+            $i++;
+            if($i == 20){
+                $i = 0;
+                $pagina++;
+            }
+            ?>
                 <!-- <div class="col-4 mb-4">
                     <div class="card" style="width: 300px">
                         <img src="https://image.tmdb.org/t/p/w500/<?php echo $pelicula->getFoto(); ?>" class="card-img-top" alt=" <?php  echo $pelicula->getNombre(); ?> "/>

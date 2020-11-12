@@ -17,18 +17,56 @@
             $this->userDAO = new UserDAO();
         }
 
-        public function Login($userName=null, $password=null)
-        {
-            $user = $this->userDAO->GetByUserName($userName);
+        public function crear($name, $lastname, $email, $password)
+         {
 
-            if(($user != null) && ($user->getPassword() === $password))
+            
+            $user = new User();
+            $user->setName($name);
+            $user->setLastname($lastname);
+            $user->setEmail($email);
+            $user->setPassword($password);
+
+            try{
+                $this->userDAO->add($user);
+            }   
+            catch(\PDOException $ex)
             {
-                $_SESSION["loggedUser"] = $user;
-                header("Location: " . FRONT_ROOT );
+                echo "entra aca";
+                echo $ex->getMessage();
             }
-            else
-                $this->Logout();
+           
+            
+
+            require_once(VIEWS_PATH."home.php");
         }
+    
+
+        public function Login($email=null, $password=null)
+        {
+            $user = $this->userDAO->GetByEmail($email);
+
+            if ($user)
+            {
+
+                if(($user != null) && ($user->getPassword() === $password))
+                {
+                    $_SESSION["loggedUser"] = $user;
+                    header("Location: " . FRONT_ROOT );
+                }
+                else {
+                    $this->Logout();
+                    echo "<script> alert('El email que ingreso no se encuentra registrado');</script>";
+                 }
+                 
+            }
+            else {
+                $this->Logout();
+                echo "<script> alert('Contraseña Incorrecta');</script>";
+            }
+            
+         }
+
         
         public function Logout()
         {           
@@ -76,4 +114,5 @@
             }
         }
     }
+    
 ?>

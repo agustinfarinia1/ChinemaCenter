@@ -3,19 +3,31 @@
 
     class User
     {
-        private $userName;
         private $password;
         private $name;
+        private $lastname;
         private $rol;
+        private $email;
 
-        public function getUserName()
+
+        public function getEmail()
         {
-            return $this->userName;
+            return $this->email;
         }
 
-        public function setUserName($userName)
+        public function setEmail($email)
         {
-            $this->userName = $userName;
+            $this->email = $email;
+        }
+
+        public function getLastname()
+        {
+            return $this->lastname;
+        }
+
+        public function setLastname($lastname)
+        {
+            $this->lastname = $lastname;
         }
 
         public function getName()

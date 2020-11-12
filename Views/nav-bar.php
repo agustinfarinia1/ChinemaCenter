@@ -15,7 +15,7 @@
             <a class="dropdown-item" href="<?php echo  FRONT_ROOT."Cine/ShowListView"?>">Cines</a>
             <a class="dropdown-item" href="<?php echo  FRONT_ROOT."Funcion/GetAll"?>">Funciones</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Estadisticas</a>
+            <a class="dropdown-item" href="<?php echo  VIEWS_PATH."statistics.php"?>">Estadisticas</a>
           </div>
         </li>
       <?php  } ?> 

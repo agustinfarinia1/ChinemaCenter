@@ -32,6 +32,7 @@
             }   
             catch(\PDOException $ex)
             {
+                echo "entra aca";
                 echo $ex->getMessage();
             }
            

@@ -41,7 +41,7 @@ class UserDAO
     {
 
 
-        $query = "INSERT INTO users (name, lastname, email, password, rol) VALUES (:name, :lastname, :email, :password, :rol)";
+        $query = "INSERT INTO users (name, lastname, email, password) VALUES (:name, :lastname, :email, :password)";
 
         $parameters['name'] = $_user->getName();
         $parameters['lastname'] = $_user->getLastName();

@@ -4,6 +4,7 @@ namespace DAODB;
 use DAODB\Connection as Connection;
 use DAODB\QueryType as QueryType;
 use Models\Funcion as Funcion;
+use PDOException;
 
 class FuncionDAO
 {
@@ -14,32 +15,36 @@ class FuncionDAO
     public function getAll()
         {
             $query = "CALL SP_FUN_GET_ALL()";
+            try{
+                $this->connection = Connection::GetInstance();
 
-            $this->connection = Connection::GetInstance();
+                $results = $this->connection->Execute($query,array(),QueryType::StoredProcedure);
 
-            $results = $this->connection->Execute($query,array(),QueryType::StoredProcedure);
+                foreach($results as $row)
+                {
+                    $f = new Funcion();
+                    $f->setIdFuncion($row["id_funcion"]);
+                    $f->setIdSala($row["id_sala"]);
+                    $f->setFechaInicio($row["fecha_inicio"]);
+                    $f->setFechaFin($row["fecha_fin"]); 
+                    $f->setHoraInicio($row["hora_inicio"]);
+                    $f->setHoraFin($row["hora_fin"]); 
+                    $f->setLunes($row["lunes"]);
+                    $f->setMartes($row["martes"]); 
+                    $f->setMiercoles($row["miercoles"]);
+                    $f->setJueves($row["jueves"]); 
+                    $f->setViernes($row["viernes"]);
+                    $f->setSabado($row["sabado"]); 
+                    $f->setDomingo($row["domingo"]);
+                
+                    array_push($this->funcionesList, $f);
+                } 
+                
+                return $this->funcionesList;
+                }
+            catch(PDOException $ex){
 
-            foreach($results as $row)
-            {
-                $f = new Funcion();
-                $f->setIdFuncion($row["id_funcion"]);
-                $f->setIdSala($row["id_sala"]);
-                $f->setFechaInicio($row["fecha_inicio"]);
-                $f->setFechaFin($row["fecha_fin"]); 
-                $f->setHoraInicio($row["hora_inicio"]);
-                $f->setHoraFin($row["hora_fin"]); 
-                $f->setLunes($row["lunes"]);
-                $f->setMartes($row["martes"]); 
-                $f->setMiercoles($row["miercoles"]);
-                $f->setJueves($row["jueves"]); 
-                $f->setViernes($row["viernes"]);
-                $f->setSabado($row["sabado"]); 
-                $f->setDomingo($row["domingo"]);
-            
-                array_push($this->funcionesList, $f);
-            } 
-            
-            return $this->funcionesList;
+            }
         }
     
     public function Add(Funcion $funcion)

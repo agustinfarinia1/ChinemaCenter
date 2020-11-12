@@ -38,7 +38,6 @@ class PeliculaController
             require_once(VIEWS_PATH."validate-session.php");
             $this->generos = $this->generoDAO->getAllGenres();
             if($this->cargarArregloPeliculas($generoBusqueda)){
-                //$this->refresh();
                 $this->peliculas = $this->cargarArregloPeliculas($generoBusqueda);
             }
             else{
@@ -52,6 +51,7 @@ class PeliculaController
         
         public function refresh(){
             $this->PeliculaDAO->refresh($this->generoDAO->getAllGenres());
+            $this->Index();
         }
 
         public function cargarArregloPeliculas(){

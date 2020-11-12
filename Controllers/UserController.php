@@ -79,7 +79,7 @@
         }        
 
 
-        public function enviarMail($email = "",$encabezado = "",$texto ="",$imagen=null){   // Envia un mail con los datos pasados por parametro
+        public function enviarMail($email = "",$encabezado = "",$texto ="",$rutaImagen=null,$nombreImagen=null){   // Envia un mail con los datos pasados por parametro
             $mail = new PHPMailer(true);
 
             try {
@@ -98,8 +98,8 @@
                 $mail->addAddress($email);
 
                 // Attachments
-                if($imagen){
-                    $mail->addAttachment($imagen,"qr.png");         // Add attachments
+                if($rutaImagen && $nombreImagen){
+                    $mail->addAttachment($rutaImagen,$nombreImagen);         // Add attachments
                 }
 
                 // Content
@@ -108,7 +108,12 @@
                 $mail->Body    = $texto;
 
                 $mail->send();
-                include_once(VIEWS_PATH."home.php");
+                if($_SESSION["loggedUser"]){
+                    header("Location:" . FRONT_ROOT . 'Funcion/Pelicula' );
+                }
+                else{
+                    include_once(VIEWS_PATH."home.php");
+                }
             } catch (Exception $e) {
                 echo "Se produjo un error: {$mail->ErrorInfo}";
             }

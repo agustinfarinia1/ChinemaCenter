@@ -10,7 +10,7 @@
                 if($_SESSION["loggedUser"]->getRol() == 1){
                     header("Location:" . FRONT_ROOT . 'Cine/ShowListView' );
                 }else{
-                    header("Location:" . FRONT_ROOT . 'Pelicula/Index' );
+                    header("Location:" . FRONT_ROOT . 'Funcion/Cartelera' );
                 }
             }
 

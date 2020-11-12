@@ -16,13 +16,13 @@
                     <div class="form-group row">
                         <label for="inputNombre" class="col-sm-2 col-form-label text-primary">Nombre:</label>
                         <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputNombre" name="name" require>
+                        <input type="text" class="form-control" id="inputNombre" name="name" required>
                         </div>
                     </div> 
                     <div class="form-group row">
                         <label for="inputApellido" class="col-sm-2 col-form-label text-primary">Apellido:</label>
                         <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputApellido" name="lastname" require>
+                        <input type="text" class="form-control" id="inputApellido" name="lastname" required>
                         </div>
                     </div>               
                     <div class="form-group row">
@@ -30,7 +30,7 @@
                         <label for="inputEmail" class="validate-email col-sm-2 col-form-label text-primary">Email:</label>
                         <div class="col-sm-10">
                         <input type="email" class="form-control" id="inputEmail" autocomplete="off" name="email" placeholder="user@gmail.com"
-                        list="defaultEmails" size="64" maxlength="256" require>
+                        list="defaultEmails" size="64" maxlength="256" required>
                         <datalist id="defaultEmails">
                         <option value="@outlook.com">
                         <option value="@yahoo.com">

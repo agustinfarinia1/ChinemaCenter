@@ -59,6 +59,8 @@
 </div>  
 
 <!-- Modal -->
+
+<form action="<?php echo  FRONT_ROOT."Compra/validarCompra "?>" method="post" >
 <div class="modal fade" id="comprarEntrada" tabindex="-1" aria-labelledby="comprarEntradaLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -82,14 +84,35 @@
                     <span class="font-weight-bold">Pelicula:</span> Titulo
                 </div> 
                 <div class="text-center">
-                    <span class="font-weight-bold">Costo:</span> $250
-                </div>                
+                   <?php $costo= 250; ?>
+                    <span class="font-weight-bold">Costo:</span><?php echo ' $ '.$costo?>
+                    <input type="hidden" name="costo" value="<?php echo $costo ?>"/>
+                </div>
+                <div class="form-group">
+                <?php // EL LIMITE  DE ENTRADAS A COMPRAR TENDRIA QUE SER EL TOTAL DE LA SALA O VERIFICAR LAS ENTRADAS VENDIDAS ?>
+            <label for="nuevo-sala-valor" class="col-form-label text-secondary">Cantidad Entradas:</label>
+            <input type="number" name="cantidadEntradas" class="form-control" id="cantidad-entradas" min="0" required>
+          </div>
+          <div class="form-group">
+            <label for="nuevo-sala-valor" class="col-form-label text-secondary">Numero de Tarjeta:</label>
+            <input type="number" name="numeroTarjeta" class="form-control" id="cantidad-entradas" min="0" required>
+          </div>
+          <div class="form-group">
+            <label for="nuevo-sala-valor" class="col-form-label text-secondary">Fecha de Vencimiento:</label>
+            <input type="month" name="fechaVencimiento" class="form-control" id="cantidad-entradas" required>
+          </div>
+          <div class="form-group">
+            <label for="nuevo-sala-valor" class="col-form-label text-secondary">CVV:</label>
+            <input type="number" name="cvv" class="form-control" id="cantidad-entradas" max="999" min="100" required>
+          </div>
+          
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary">Comprar</button>
+                <button type="submit" class="btn btn-primary">Comprar</button>
             </div>
         </div>
     </div>
 </div>
+</form>
     

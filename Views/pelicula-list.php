@@ -139,6 +139,7 @@ $controller = new PeliculaController();
 </div>
 
 <!-- Modal -->
+<form action="<?php echo FRONT_ROOT."Pelicula/refresh" ?>" method="POST">            
 <div class="modal fade" id="actualizarPeliculas" tabindex="-1" aria-labelledby="actualizarPeliculasLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content bg-danger">
@@ -155,8 +156,9 @@ $controller = new PeliculaController();
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-warning" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-outline-primary">Actualizar</button>
+        <button type="submit" class="btn btn-outline-primary">Actualizar</button>
       </div>
     </div>
   </div>
 </div>
+</form>

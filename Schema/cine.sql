@@ -8,19 +8,22 @@ CREATE TABLE IF NOT EXISTS users
 (
     id_user int NOT NULL AUTO_INCREMENT,
 	name VARCHAR(100) NOT NULL,
-	userName VARCHAR(100) NOT NULL UNIQUE,
+  lastname VARCHAR(100) NOT NULL,
+	email VARCHAR(100) NOT NULL UNIQUE,
     password VARCHAR(100) NOT NULL,
     rol int DEFAULT 0,
     estado int DEFAULT 1,
     token VARCHAR(100),
     CONSTRAINT PK_USERS PRIMARY KEY (id_user),
-    CONSTRAINT UQ_USERS UNIQUE (userName)
+    CONSTRAINT UQ_USERS UNIQUE (email)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO users (name, userName, password, rol) VALUES ('admin', 'admin@chinemacenter.com','1234',1);
-INSERT INTO users (name, userName, password) VALUES ('user', 'user@chinemacenter.com','1234');
+INSERT INTO users (name, lastname, email, password, rol) VALUES ('Erick', 'Ziegler' 'erick.ziegler@gmail.com','1990');
+INSERT INTO users (name, email, password, rol) VALUES ('admin', 'admin@chinemacenter.com','1234',1);
+INSERT INTO users (name, email, password) VALUES ('user', 'user@chinemacenter.com','1234');
 
-CREATE TABLE cines (
+CREATE TABLE cines 
+(
   id_cine int NOT NULL AUTO_INCREMENT,
   nombre varchar(50) NOT NULL,
   direccion varchar(50) NOT NULL,

@@ -1,3 +1,4 @@
+<script type="text/javascript" src="wforms.js"></script>
 
 <!-- Modal -->
 <div class="modal fade" id="userRegistrar" tabindex="-1" aria-labelledby="userRegistrarLabel" aria-hidden="true">
@@ -10,25 +11,40 @@
                 </button>
             </div>
 
-            <form>            
+            <form action="<?php echo  FRONT_ROOT."User/crear"?>" method="post">            
                 <div class="modal-body">   
                     <div class="form-group row">
                         <label for="inputNombre" class="col-sm-2 col-form-label text-primary">Nombre:</label>
                         <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputNombre">
+                        <input type="text" class="form-control" id="inputNombre" name="name" require>
+                        </div>
+                    </div> 
+                    <div class="form-group row">
+                        <label for="inputApellido" class="col-sm-2 col-form-label text-primary">Apellido:</label>
+                        <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputApellido" name="lastname" require>
                         </div>
                     </div>               
                     <div class="form-group row">
-                        <label for="inputEmail" class="col-sm-2 col-form-label text-primary">Email:</label>
+                    
+                        <label for="inputEmail" class="validate-email col-sm-2 col-form-label text-primary">Email:</label>
                         <div class="col-sm-10">
-                        <input type="email" class="form-control" id="inputEmail" autocomplete="off">
+                        <input type="email" class="form-control" id="inputEmail" autocomplete="off" name="email" placeholder="user@gmail.com"
+                        list="defaultEmails" size="64" maxlength="256" require>
+                        <datalist id="defaultEmails">
+                        <option value="@outlook.com">
+                        <option value="@yahoo.com">
+                        <option value="@iCloud.com">
+                        <option value="@hotmail.com">
+                        </datalist>
 
                         </div>
+                        
                     </div>
                     <div class="form-group row">
                         <label for="inputPassword" class="col-sm-2 col-form-label text-primary">Password:</label>
                         <div class="col-sm-10">
-                        <input type="password" class="form-control" id="inputPassword" autocomplete="off">
+                        <input type="password" class="form-control" id="inputPassword" name="password" autocomplete="off" require>
                         </div>
                     </div>
                 </div>

@@ -101,5 +101,23 @@ class PeliculaDAO
 
         file_put_contents($this->fileName, $fileContent);
     }
+
+    public function verificarGenero($genero,$arregloGeneros){
+        foreach($arregloGeneros as $generoPelicula){
+            if($genero == $generoPelicula){
+                return true;
+            }
+        }
+        return false;
+    }
+    public function getByPeliculaId($idPelicula){
+        $arreglo = $this->retrieveData();
+        foreach($arreglo as $pelicula){
+            if($pelicula->getId() == $idPelicula){
+                return $pelicula;
+            }
+        }
+        return false;
+    }
 }
 ?>

@@ -19,8 +19,6 @@ $controller = new PeliculaController();
                 <label class="my-1 mr-2" for="genero">Genero</label>
                 <select class="custom-select my-1 mr-sm-2" id="genero" name="genero">
                     <?php
-
-                    $pagina = 1;
                         foreach ($this->generos as $genero) {
                         echo "<option value= " .$genero->getIdGenero(). ">" .$genero->getGenero(). "</option>";
                     
@@ -43,35 +41,20 @@ $controller = new PeliculaController();
         </form>
 
         <div class="row">  
-        <?php 
-            $i=0;
-            
-        foreach($this->pagina as $pelicula) { 
-            $i++;
-            if($i == 20){
-                $i = 0;
-                $pagina++;
-            }
+        <?php
+        foreach($this->contenidoPagina as $pelicula) { 
             ?>
-                <!-- <div class="col-4 mb-4">
-                    <div class="card" style="width: 300px">
-                        <img src="https://image.tmdb.org/t/p/w500/<?php echo $pelicula->getFoto(); ?>" class="card-img-top" alt=" <?php  echo $pelicula->getNombre(); ?> "/>
-                        <div class="card-body" style="width: 300px">
-                            <h6 class="text-primary"><?php echo $pelicula->getNombre(); ?> </h6>
-                            <p class="text-primary"> <?php echo $pelicula->getComentario(); ?> </p>
-                        </div>
-                        <a 
-                            class="btn btn-info btn-block"
-                            href="<?php echo  FRONT_ROOT."Funcion/SetPelicula/".$pelicula->getId() ?>"
-                        >
-                            Selecionar Pelicula
-                        </a>
-                    </div>            
-                </div>  -->
                 <div class="col-3 mb-4">
                     <div class="bg-light p-1 rounded">
                         <button class="btn btn-link btn-block"><?php echo $pelicula->getNombre(); ?> </button>
-                        <img src="https://image.tmdb.org/t/p/w500/<?php echo $pelicula->getFoto(); ?>" class="img-fluid rounded" alt="">
+                        <?php if($pelicula->getFoto()){ ?>
+                            <img src="https://image.tmdb.org/t/p/w500/<?php echo $pelicula->getFoto(); ?>" class="img-fluid rounded" alt="">
+
+                        <?php }
+                        else{ ?>
+                            <img src="<?php echo  IMG_PATH."not-Found.png" ?>" class="img-fluid rounded" alt="">
+                       <?php } ?>
+
                         <a 
                             class="btn btn-info btn-block mt-1"
                             href="<?php echo  FRONT_ROOT."Funcion/SetPelicula/".$pelicula->getId() ?>"
@@ -87,6 +70,72 @@ $controller = new PeliculaController();
         ?>
         </div>
     </div>
+
+
+
+        <nav aria-label="paginacion">
+        <ul class="pagination justify-content-center">
+                <?php if($pagina >= 2){ 
+                    $anterior = $pagina - 1;
+                        if($fecha_min){
+                                if($fecha_max){ ?>
+                                    <li class="page-item"><a class="page-link" href="<?php echo  FRONT_ROOT."Pelicula/Index/$generoBusqueda/$fecha_min/$fecha_max/$anterior" ?>"  aria-label="Previous">
+                                <?php }
+                                else{ ?>
+                                    <li class="page-item"><a class="page-link" href="<?php echo  FRONT_ROOT."Pelicula/Index/$generoBusqueda/$fecha_min/2000-01-01/$anterior" ?>"  aria-label="Previous">
+                            <?php }
+                        }
+                        else{
+                        if($fecha_max)
+                        { ?>
+                            <li class="page-item"><a class="page-link" href="<?php echo  FRONT_ROOT."Pelicula/Index/$generoBusqueda/2000-01-01/$fecha_max/$anterior" ?>"  aria-label="Previous">
+                    <?php }
+                        else{
+                            ?>
+                            <li class="page-item"><a class="page-link" href="<?php echo  FRONT_ROOT."Pelicula/Index/$generoBusqueda/2000-01-01/2000-01-01/$anterior" ?>"  aria-label="Previous">
+                     <?php }
+                    } ?>
+                            <span aria-hidden="true">&laquo;</span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                    </li>
+
+                    <li class="page-item"><span class="page-link" href="#"><?php echo $anterior ?></span></li>
+            <?php } ?>
+            <li class="page-item active"><span class="page-link" href="#"><?php echo $pagina ?></span></li>
+
+            <?php if($pagina < $this->paginaMax){
+                //$generoBusqueda.'/'.$fecha_min.'/'.$fecha_max.'/'.$pagina'
+                $siguiente = $pagina + 1;
+                ?>
+                     <li class="page-item"><span class="page-link" href="#"><?php echo $siguiente ?></span></li>
+                    </li> <?php
+
+                    if($fecha_min){
+                        if($fecha_max){ ?>
+                            <li class="page-item"><a class="page-link" href="<?php echo  FRONT_ROOT."Pelicula/Index/$generoBusqueda/$fecha_min/$fecha_max/$siguiente" ?>"  aria-label="Next">
+                       <?php }
+                       else{ ?>
+                        <li class="page-item"><a class="page-link" href="<?php echo  FRONT_ROOT."Pelicula/Index/$generoBusqueda/$fecha_min/2000-01-01/$siguiente" ?>"  aria-label="Next">
+                      <?php }
+                    }
+                    else{
+                        if($fecha_max)
+                        { ?>
+                            <li class="page-item"><a class="page-link" href="<?php echo  FRONT_ROOT."Pelicula/Index/$generoBusqueda/2000-01-01/$fecha_max/$siguiente" ?>"  aria-label="Next">
+                    <?php }
+                        else{
+                            ?>
+                            <li class="page-item"><a class="page-link" href="<?php echo  FRONT_ROOT."Pelicula/Index/$generoBusqueda/2000-01-01/2000-01-01/$siguiente" ?>"  aria-label="Next">
+                     <?php }
+                    } ?>
+                            <span aria-hidden="true">&raquo;</span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </li>
+                <?php } ?>
+        </ul>
+        </nav>
 </div>
 
 <!-- Modal -->

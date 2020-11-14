@@ -22,7 +22,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-info" data-dismiss="modal">Cancelar</button>
-        <form action="<?php echo FRONT_ROOT."Funcion/Remove" ?>" method="post">
+        <form action="<?php echo FRONT_ROOT."Funcion/remove" ?>" method="post">
           <button 
             type="submit" 
             name="id"  

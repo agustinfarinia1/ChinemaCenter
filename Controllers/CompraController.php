@@ -3,17 +3,18 @@
 
 
 use Controllers\UserController as UserController;
-use Models\User as User;
+use DAODB\ComprasDAO as ComprasDAO;
 use Models\QR_BarCode as QR_BarCode;
+use Models\Compra as Compra;
 
       
 
 class CompraController
     {       
-
+        private $compraDAO;  
         public function __construct()
         {
-            
+            $this->compraDAO = new comprasDAO();
         } 
 
         public function Index($message = "")
@@ -21,14 +22,22 @@ class CompraController
 
         }
 
-        public function compraEntrada(){
-            require_once(VIEWS_PATH."funcion-comprar.php");
-        }
-
-        public function validarCompra($cine,$sala,$pelicula,$costo,$cantidadEntradas,$numeroTarjeta,$fechaVencimiento,$cvv){
+        public function validarCompra($diaFuncion,$cine,$sala,$pelicula,$costo,$cantidadEntradas,$numeroTarjeta,$fechaVencimiento,$cvv){
             if($numeroTarjeta >= 1000000000000000 && $numeroTarjeta <= 9999999999999999){
                 if($fechaVencimiento > date("Y-m")){
                     if($cvv >= 100 && $cvv <= 999){ // PODRIAMOS MANDAR MAIL CON LA CONFIRMACION DEL PAGO
+
+                        $compra = new Compra();
+                        $compra->setIdFuncion($_SESSION["idFuncion"]);
+                        $compra->setFechaCompra(date("Y-m-d"));
+                        $compra->setFechaFuncion($diaFuncion);
+                        $compra->setEmail($_SESSION["loggedUser"]->getEmail());
+                        $compra->setCantidad($cantidadEntradas);
+
+                        var_dump($compra);
+
+                        $this->compraDAO->add($compra);
+
                         $texto =  $_SESSION["loggedUser"]->getLastName()." ".$_SESSION["loggedUser"]->getName()." ,Usted realizo una compra de  $ ".($cantidadEntradas * $costo)." pesos en el cine $cine y en la sala $sala para ver la pelicula $pelicula.<br> gracias por su compra.";
                         $controller = new UserController();
 
@@ -56,7 +65,7 @@ class CompraController
             else{
                 echo "su numero esta fuera de rango";
             }
-            header("Location:" . FRONT_ROOT . 'Funcion/Cartelera' );   //REDIRECCIONA DE NUEVO A LA PAGINA ANTERIOR
+            //header("Location:" . FRONT_ROOT . 'Funcion/Cartelera' );   //REDIRECCIONA DE NUEVO A LA PAGINA ANTERIOR
         }
     }
 ?>

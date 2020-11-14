@@ -84,8 +84,10 @@
             
             if( count($funcionesList) > 0){
                 require_once(VIEWS_PATH."funcion-add.php");
-            }else{               
-                $this->peliculaDAO->add($_SESSION["idPelicula"]);
+            }else{
+                if(!$this->peliculaDAO->buscar_por_id($_SESSION["idPelicula"])){
+                    $this->peliculaDAO->add($_SESSION["idPelicula"]);
+                }          
                 $funcionesList = $this->funcionDAO->Add($funcion);
                 //require_once(VIEWS_PATH."funcion-cartelera.php");
                 header('Location:Cartelera');
@@ -123,9 +125,9 @@
 
         public function remove($id)
         {
+            echo $id;
             require_once(VIEWS_PATH."validate-session.php");
-            
-            $this->funcionDAO->Remove($id);
+            $this->funcionDAO->remove($id);
 
             header('Location:getAll');
         }

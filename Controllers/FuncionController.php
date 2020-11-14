@@ -26,7 +26,11 @@
         public function getFuncionPorId($id){
             
             $funcionesList = $this->funcionDAO->getPorId($id);
+
             $funcion = $funcionesList[0];
+            //echo "<pre>";
+            //var_dump($funcion);
+            //echo "</pre>";
             require_once(VIEWS_PATH."funcion-pelicula.php");
         }  
 
@@ -183,5 +187,65 @@
             require_once(VIEWS_PATH."funcion-pelicula.php");
         }       
 
+        public function comprobarFechaFuncion($funcion,$dia){
+            switch ($dia) {
+                case 0:
+                        if($funcion->getDomingo()){
+                            return true;
+                        }
+                        else{
+                            return false;
+                        }
+                    break;
+                case 1:
+                        if($funcion->getLunes()){
+                            return true;
+                        }
+                        else{
+                            return false;
+                        }
+                    break;
+                case 2:
+                    if($funcion->getMartes()){
+                        return true;
+                    }
+                    else{
+                        return false;
+                    }
+                    break;
+                case 3:
+                    if($funcion->getMiercoles()){
+                        return true;
+                    }
+                    else{
+                        return false;
+                    }
+                    break;
+                case 4:
+                    if($funcion->getJueves()){
+                        return true;
+                    }
+                    else{
+                        return false;
+                    }
+                    break;
+                case 5:
+                    if($funcion->getViernes()){
+                        return true;
+                    }
+                    else{
+                        return false;
+                    }
+                    break;
+                case 6:
+                    if($funcion->getSabado()){
+                        return true;
+                    }
+                    else{
+                        return false;
+                    }
+                    break;
+            }
+        }
     }
 ?>

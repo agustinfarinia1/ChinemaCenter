@@ -18,7 +18,8 @@ CREATE TABLE IF NOT EXISTS users
     CONSTRAINT UQ_USERS UNIQUE (email)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO users (name, lastname, email, password, rol) VALUES ('Erick', 'Ziegler' 'erick.ziegler@gmail.com','1990');
+select * from users;
+
 INSERT INTO users (name, email, password, rol) VALUES ('admin', 'admin@chinemacenter.com','1234',1);
 INSERT INTO users (name, email, password) VALUES ('user', 'user@chinemacenter.com','1234');
 
@@ -214,3 +215,5 @@ VALUES
     
 END$$
 DELIMITER ;
+
+UPDATE funciones f SET estreno=0 WHERE f.id_funcion= 4;

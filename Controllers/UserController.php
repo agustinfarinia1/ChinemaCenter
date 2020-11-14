@@ -108,7 +108,12 @@
                 $mail->Body    = $texto;
 
                 $mail->send();
-                include_once(VIEWS_PATH."home.php");
+                if($_SESSION["loggedUser"]){
+                    header("Location:" . FRONT_ROOT . 'Funcion/Cartelera' );
+                }
+                else{
+                    include_once(VIEWS_PATH."home.php");
+                }
             } catch (Exception $e) {
                 echo "Se produjo un error: {$mail->ErrorInfo}";
             }

@@ -3,8 +3,31 @@
  require_once("validate-session.php");
 
  use Controllers\FuncionController as FuncionController;
-?>
-
+ if($op == 0){ 
+     ?>
+    <div class="row">
+        <div class="col-8 offset-2 mt-3">
+            <div class="alert alert-success" role="alert">
+                <strong>Felicidades!!</strong>  Su compra se realizo con exito
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <?php } ?>
+<?php if( $op == 1){ ?>
+<div class="row">
+    <div class="col-8 offset-2 mt-3">
+        <div class="alert alert-danger" role="alert">
+            <strong>Advertencia!!</strong> <?php echo str_replace("-", " ",$mensaje); ?>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>
+</div>
+<?php } ?>
 <div class="container">
     <div class="row">
         <div class="col-3">

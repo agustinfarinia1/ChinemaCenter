@@ -108,10 +108,7 @@
                 $mail->Body    = $texto;
 
                 $mail->send();
-                if($_SESSION["loggedUser"]){
-                    header("Location:" . FRONT_ROOT . 'Funcion/Cartelera' );
-                }
-                else{
+                if(!$_SESSION["loggedUser"]){
                     include_once(VIEWS_PATH."home.php");
                 }
             } catch (Exception $e) {

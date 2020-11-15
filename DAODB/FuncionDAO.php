@@ -88,6 +88,28 @@ class FuncionDAO
         
         return $this->funcionesList;
     }
+
+    public function lugaresEnSala($id_funcion,$fecha_funcion)
+    {
+        $query = "select sum(cantidad) as can,salas.capacidad from compras
+        join funciones on compras.id_funcion = funciones.id_funcion
+        join salas on salas.id_sala = funciones.id_sala
+        where compras.id_funcion=".$id_funcion." and compras.fecha_funcion='".$fecha_funcion."'";
+
+        $parameters["idFuncion"] =  $id_funcion;
+        $parameters["fecha_funcion"] =  $fecha_funcion;
+
+        $this->connection = Connection::GetInstance();
+
+        $results = $this->connection->Execute($query,$parameters);
+        $arreglo = array();
+        foreach($results as $row)
+        {
+            array_push($arreglo,$row["can"]);
+            array_push($arreglo,$row["capacidad"]);
+        } 
+        return $arreglo;
+    }
     
     public function Add(Funcion $funcion)
     {

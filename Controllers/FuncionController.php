@@ -23,9 +23,8 @@
             require_once(VIEWS_PATH."funcion-list.php");
         } 
         
-        public function getFuncionPorId($id){
-            
-            $funcionesList = $this->funcionDAO->getPorId($id);
+        public function getFuncionPorId($idFuncion,$op =-1,$mensaje = ""){
+            $funcionesList = $this->funcionDAO->getPorId($idFuncion);
 
             $funcion = $funcionesList[0];
             //echo "<pre>";

@@ -23,10 +23,22 @@ class CompraController
 
         }
 
-        public function validarCompra($diaFuncion,$cine,$sala,$pelicula,$costo,$cantidadEntradas,$numeroTarjeta,$fechaVencimiento,$cvv){
+        public function validarCompra($diaFuncion,$cine,$sala,$pelicula,$costo,$cantidadEntradas,$tipoTarjeta,$numeroTarjeta,$fechaVencimiento,$cvv){
+            $minimoNumeroEntrada = 0;
+            $maximoNumeroEntrada = 0;
+            switch ($tipoTarjeta) {
+                case 0:
+                    $minimoNumeroEntrada = 4000000000000000;
+                    $maximoNumeroEntrada = 4999999999999999;
+                    break;
+                case 1:
+                    $minimoNumeroEntrada = 2000000000000000;
+                    $maximoNumeroEntrada = 2999999999999999;
+                    break;              
+            }
             $mensaje = "";
             $op = 1;
-            if($numeroTarjeta >= 1000000000000000 && $numeroTarjeta <= 9999999999999999){
+            if($numeroTarjeta >= $minimoNumeroEntrada && $numeroTarjeta <= $maximoNumeroEntrada){
                 if($fechaVencimiento > date("Y-m")){
                     if($cvv >= 100 && $cvv <= 999){ // PODRIAMOS MANDAR MAIL CON LA CONFIRMACION DEL PAGO
                         $compra = new Compra();

@@ -6,7 +6,7 @@
         private $idFuncion;
         private $fecha_compra;
         private $fecha_funcion;
-        private $email;
+        private $idUsuario;
         private $cantidad;
     
         public function getIdFuncion()
@@ -39,14 +39,14 @@
             $this->fecha_funcion = $fecha_funcion;
         }
 
-        public function getEmail()
+        public function getIdUsuario()
         {
-            return $this->email;
+            return $this->idUsuario;
         }
 
-        public function setEmail($email)
+        public function setIdUsuario($idUsuario)
         {
-            $this->email = $email;
+            $this->idUsuario = $idUsuario;
         }
 
         public function getCantidad()

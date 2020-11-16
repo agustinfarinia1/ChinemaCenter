@@ -6,7 +6,7 @@ CREATE TABLE compras (
   id_funcion int NOT NULL,
   fecha_compra DATE NOT NULL,
   fecha_funcion DATE NOT NULL,
-  email VARCHAR(100) NOT NULL,
+  id_usuario VARCHAR(100) NOT NULL,
   cantidad int NOT NULL,
   CONSTRAINT FK_COMPRAS FOREIGN KEY (id_funcion) REFERENCES funciones(id_funcion)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

@@ -37,7 +37,7 @@ class CompraController
                     break;              
             }
             $mensaje = "";
-            $op = 1;
+            $op = 2;
             if($numeroTarjeta >= $minimoNumeroEntrada && $numeroTarjeta <= $maximoNumeroEntrada){
                 if($fechaVencimiento > date("Y-m")){
                     if($cvv >= 100 && $cvv <= 999){ // PODRIAMOS MANDAR MAIL CON LA CONFIRMACION DEL PAGO
@@ -45,7 +45,7 @@ class CompraController
                         $compra->setIdFuncion($_SESSION["idFuncion"]);
                         $compra->setFechaCompra(date("Y-m-d"));
                         $compra->setFechaFuncion($diaFuncion);
-                        $compra->setEmail($_SESSION["loggedUser"]->getEmail());
+                        $compra->setIdUsuario($_SESSION["loggedUser"]->getId());
                         $compra->setCantidad($cantidadEntradas);
 
                         $dao = new FuncionDAO();
@@ -54,7 +54,8 @@ class CompraController
 
                         if($arreglo[1] - ($compra->getCantidad() + $arreglo[0]) >= 1)
                         {
-                            $op = 0;
+                            $op = 1;
+                            $mensaje = "Su-compra-se-realizo-con-exito";
                             $this->compraDAO->add($compra);
 
                             $texto =  $_SESSION["loggedUser"]->getLastName()." ".$_SESSION["loggedUser"]->getName()." ,Usted realizo una compra de  $ ".($cantidadEntradas * $costo)." pesos en el cine $cine y en la sala $sala para ver la pelicula $pelicula.<br> gracias por su compra.";
@@ -86,6 +87,7 @@ class CompraController
             else{
                 $mensaje = "su-numero-esta-fuera-de-rango";
             }
+            var_dump($op);
             header("Location:" . FRONT_ROOT . 'Funcion/getFuncionPorId/'.$_SESSION["idFuncion"].'/'.$op.'/'.$mensaje );   //REDIRECCIONA DE NUEVO A LA PAGINA ANTERIOR
         }
     }

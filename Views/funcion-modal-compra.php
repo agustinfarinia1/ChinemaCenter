@@ -34,10 +34,12 @@
                 <label for="nuevo-sala-valor" class="col-form-label text-secondary">Cantidad Entradas:</label>
             <input type="number" name="cantidadEntradas" class="form-control" id="cantidad-entradas" min="0" required>
             </div>
-            <select name="tipoTarjeta">
-                <option value="0">Visa</option>
-                <option value="1">MasterCard</option>
-            </select>
+            <div class="text-center">
+                <select class="custom-select my-1 mr-sm-2" name="tipoTarjeta">
+                    <option value="0">Visa</option>
+                    <option value="1">MasterCard</option>
+                </select>
+            </div>
           <div class="form-group">
             <label for="nuevo-sala-valor" class="col-form-label text-secondary">Numero de Tarjeta:</label>
             <input type="number" name="numeroTarjeta" class="form-control" id="cantidad-entradas" min="0" required>

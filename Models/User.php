@@ -8,7 +8,17 @@
         private $lastname;
         private $rol;
         private $email;
+        private $idUsuario;
 
+        public function getId()
+        {
+            return $this->idUsuario;
+        }
+
+        public function setId($idUsuario)
+        {
+            $this->idUsuario = $idUsuario;
+        }
 
         public function getEmail()
         {

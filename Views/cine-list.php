@@ -51,6 +51,7 @@
                                     data-toggle="modal" 
                                     data-target="#deleteCine<?php echo $cine->getId(); ?>"
                                 >Eliminar</button>
+                                
                             </span>                            
                             
                                                        

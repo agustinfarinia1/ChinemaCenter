@@ -15,6 +15,7 @@ main{
     min-height: 100vh;
 }
 
+
 .home-login{
     background-image: url('../../img/fondo1.jpg');
     background-size: cover;
@@ -34,12 +35,17 @@ main{
     }
 }
 
+
+
 .login-form{
     padding: 40px 20px;
     background-color: rgba(255, 255, 255,.7);
     border-radius: 5px;
 }
 
+.logo{
+    padding: 40px 20px;
+}
 
 .fb {
     background-color: #3B5998;

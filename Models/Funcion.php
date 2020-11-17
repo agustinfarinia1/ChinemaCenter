@@ -24,6 +24,8 @@
         private $foto;
         private $poster;
         private $comentario;
+        private $capacidadSala;
+        private $entradasVendidas;
 
         public function getIdFuncion()
         {
@@ -240,6 +242,25 @@
             $this->comentario = $comentario;
         }
 
-       
+        public function getCapacidadSala()
+        {
+            return $this->capacidadSala;
+        }
+
+        public function setCapacidadSala($capacidadSala)
+        {
+            $this->capacidadSala = $capacidadSala;
+        }
+
+        public function getEntradasVendidas()
+        {
+            return $this->entradasVendidas;
+        }
+
+        public function setEntradasVendidas($entradasVendidas)
+        {
+            $this->entradasVendidas = $entradasVendidas;
+        }
+
     }
 ?>

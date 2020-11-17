@@ -17,7 +17,7 @@ class UserDAO
     {
         $user = null;
 
-        $query = "SELECT name, lastname, email, password, rol FROM " . $this->tableName . " WHERE (email = :email)";
+        $query = "SELECT id_user,name, lastname, email, password, rol FROM " . $this->tableName . " WHERE (email = :email)";
 
         $parameters["email"] = $email;
 
@@ -27,6 +27,7 @@ class UserDAO
 
         foreach ($results as $row) {
             $user = new User();
+            $user->setId($row["id_user"]);
             $user->setName($row["name"]);
             $user->setLastname($row["lastname"]);
             $user->setEmail($row["email"]);

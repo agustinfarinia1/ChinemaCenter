@@ -23,10 +23,13 @@
             require_once(VIEWS_PATH."funcion-list.php");
         } 
         
-        public function getFuncionPorId($id){
-            
-            $funcionesList = $this->funcionDAO->getPorId($id);
+        public function getFuncionPorId($idFuncion,$op =-1,$mensaje = ""){
+            $funcionesList = $this->funcionDAO->getPorId($idFuncion);
+
             $funcion = $funcionesList[0];
+            //echo "<pre>";
+            //var_dump($funcion);
+            //echo "</pre>";
             require_once(VIEWS_PATH."funcion-pelicula.php");
         }  
 
@@ -80,8 +83,10 @@
             
             if( count($funcionesList) > 0){
                 require_once(VIEWS_PATH."funcion-add.php");
-            }else{               
-                $this->peliculaDAO->add($_SESSION["idPelicula"]);
+            }else{
+                if(!$this->peliculaDAO->buscar_por_id($_SESSION["idPelicula"])){
+                    $this->peliculaDAO->add($_SESSION["idPelicula"]);
+                }          
                 $funcionesList = $this->funcionDAO->Add($funcion);
                 //require_once(VIEWS_PATH."funcion-cartelera.php");
                 header('Location:Cartelera');
@@ -118,10 +123,9 @@
         }
 
         public function Remove($id)
-        {            
+
             require_once(VIEWS_PATH."validate-session.php");
-            
-            $this->funcionDAO->Remove($id);
+            $this->funcionDAO->remove($id);
 
             header('Location:getAll');
         }
@@ -184,5 +188,65 @@
             require_once(VIEWS_PATH."funcion-pelicula.php");
         }       
 
+        public function comprobarFechaFuncion($funcion,$dia){
+            switch ($dia) {
+                case 0:
+                        if($funcion->getDomingo()){
+                            return true;
+                        }
+                        else{
+                            return false;
+                        }
+                    break;
+                case 1:
+                        if($funcion->getLunes()){
+                            return true;
+                        }
+                        else{
+                            return false;
+                        }
+                    break;
+                case 2:
+                    if($funcion->getMartes()){
+                        return true;
+                    }
+                    else{
+                        return false;
+                    }
+                    break;
+                case 3:
+                    if($funcion->getMiercoles()){
+                        return true;
+                    }
+                    else{
+                        return false;
+                    }
+                    break;
+                case 4:
+                    if($funcion->getJueves()){
+                        return true;
+                    }
+                    else{
+                        return false;
+                    }
+                    break;
+                case 5:
+                    if($funcion->getViernes()){
+                        return true;
+                    }
+                    else{
+                        return false;
+                    }
+                    break;
+                case 6:
+                    if($funcion->getSabado()){
+                        return true;
+                    }
+                    else{
+                        return false;
+                    }
+                    break;
+            }
+        }
     }
 ?>

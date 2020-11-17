@@ -62,31 +62,31 @@
               
                     <div class="col-12 text-center">
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="lunes" <?php if($funcion->getLunes()) echo "checked" ?> disabled>
+                            <input class="form-check-input" type="checkbox"  <?php if($funcion->getLunes()) echo "checked" ?> disabled>
                             <label class="form-check-label" for="lunes">Lunes</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="martes" <?php if($funcion->getMartes()) echo "checked" ?> disabled>
+                            <input class="form-check-input" type="checkbox" <?php if($funcion->getMartes()) echo "checked" ?> disabled>
                             <label class="form-check-label" for="martes">Martes</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="miercoles" <?php if($funcion->getMiercoles()) echo "checked" ?> disabled>
+                            <input class="form-check-input" type="checkbox"  <?php if($funcion->getMiercoles()) echo "checked" ?> disabled>
                             <label class="form-check-label" for="miercoles">Miercoles</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="jueves" <?php if($funcion->getJueves()) echo "checked" ?> disabled>
+                            <input class="form-check-input" type="checkbox" <?php if($funcion->getJueves()) echo "checked" ?> disabled>
                             <label class="form-check-label" for="jueves">Jueves</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="viernes" <?php if($funcion->getViernes()) echo "checked" ?> disabled>
+                            <input class="form-check-input" type="checkbox"  <?php if($funcion->getViernes()) echo "checked" ?> disabled>
                             <label class="form-check-label" for="viernes">Viernes</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="sabado" <?php if($funcion->getSabado()) echo "checked" ?> disabled>
+                            <input class="form-check-input" type="checkbox"  <?php if($funcion->getSabado()) echo "checked" ?> disabled>
                             <label class="form-check-label" for="sabado">Sabado</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="domingo" <?php if($funcion->getDomingo()) echo "checked" ?> disabled>
+                            <input class="form-check-input" type="checkbox"  <?php if($funcion->getDomingo()) echo "checked" ?> disabled>
                             <label class="form-check-label" for="domingo">Domingo</label>
                         </div>
                     </div>                                                
@@ -95,7 +95,8 @@
         </div>
     </div>
 <?php 
-        include('funcion-modal-edit.php');
+        
         include('funcion-modal-delete.php');
+        include('funcion-modal-edit.php');
     } 
 ?>

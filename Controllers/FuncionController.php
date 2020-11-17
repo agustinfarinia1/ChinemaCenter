@@ -117,14 +117,15 @@
             }
         }
 
-        public function remove($id)
-        {
+        public function Remove($id)
+        {            
             require_once(VIEWS_PATH."validate-session.php");
             
             $this->funcionDAO->Remove($id);
 
             header('Location:getAll');
         }
+       
 
         public function edit($fechaInicio, $fechaFin, $horaInicio, $idFuncion, $dia1='', $dia2='', $dia3='', $dia4='', $dia5='', $dia6='', $dia7='')
         {

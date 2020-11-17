@@ -2,13 +2,13 @@
     class="modal fade" 
     id="editFuncion<?php echo $funcion->getIdFuncion(); ?>" 
     tabindex="-1" 
-    aria-labelledby="newSalaModalLabel" 
+    aria-labelledby="editFuncionModalLabel<?php echo $funcion->getIdFuncion() ?>" 
     aria-hidden="true"
 >
   <div class="modal-dialog">
     <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title text-primary" id="newSalaModalLabel">Funcion</h5>        
+            <h5 class="modal-title text-primary" id="editFuncionModalLabel<?php echo $funcion->getIdFuncion() ?>">Funcion</h5>        
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
             </button>
@@ -16,13 +16,12 @@
 
         <form action="<?php echo FRONT_ROOT."Funcion/edit"?>" method="POST" class="p-3">
             <div class="form-group row">
-                <label for="editFechaInicio"  class="col-sm-4 col-form-label text-primary">Fecha de Inicio</label>
+                <label class="col-sm-4 col-form-label text-primary">Fecha de Inicio</label>
                 <div class="col-sm-8">
                     <input 
                         type="date" 
                         class="form-control"
                         name="editFechaInicio" 
-                       
                         value="<?php echo $funcion->getFechaInicio(); ?>"  
                         min="<?php echo date("Y-m-d"); ?>"
                     >     
@@ -37,8 +36,7 @@
                 <input 
                         type="date" 
                         class="form-control"
-                        name="editFechaFin" 
-                        
+                        name="editFechaFin"
                         value="<?php echo $funcion->getFechaFin(); ?>"  
                         min="<?php echo date("Y-m-d"); ?>"
                     >        

@@ -4,6 +4,7 @@ namespace DAODB;
 
 use Models\Pelicula as Pelicula;
 use DAODB\Connection as Connection;
+use DAODB\QueryType as QueryType;
 
 class PeliculaDAO
 {

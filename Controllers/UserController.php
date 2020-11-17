@@ -111,7 +111,11 @@
                 include_once(VIEWS_PATH."home.php");
             } catch (Exception $e) {
                 echo "Se produjo un error: {$mail->ErrorInfo}";
-            }
+            }            
+        }
+
+        public function nuevoPassword ($token=''){
+            require_once(VIEWS_PATH."user-nuevo-pass.php");  
         }
     }
     

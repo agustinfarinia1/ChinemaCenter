@@ -47,6 +47,7 @@ class CompraController
                         $compra->setFechaFuncion($diaFuncion);
                         $compra->setIdUsuario($_SESSION["loggedUser"]->getId());
                         $compra->setCantidad($cantidadEntradas);
+                        $compra->setMontoTotal($cantidadEntradas * $costo);
 
                         $dao = new FuncionDAO();
                         $arreglo = array();

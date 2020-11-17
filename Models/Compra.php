@@ -8,6 +8,7 @@
         private $fecha_funcion;
         private $idUsuario;
         private $cantidad;
+        private $montoTotal;
     
         public function getIdFuncion()
         {
@@ -57,6 +58,16 @@
         public function setCantidad($cantidad)
         {
             $this->cantidad = $cantidad;
+        }
+
+        public function getMontoTotal()
+        {
+            return $this->montoTotal;
+        }
+
+        public function setMontoTotal($montoTotal)
+        {
+            $this->montoTotal = $montoTotal;
         }
     }
 ?>

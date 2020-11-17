@@ -14,13 +14,14 @@
        
         public function add(Compra $compra)
         {
-            $query = "INSERT INTO " . $this->tableName . "(id_funcion,fecha_compra,fecha_funcion,id_usuario,cantidad) VALUES (:id_funcion,:fecha_compra,:fecha_funcion,:id_usuario,:cantidad)";           
+            $query = "INSERT INTO " . $this->tableName . "(id_funcion,fecha_compra,fecha_funcion,id_usuario,cantidad,monto_total) VALUES (:id_funcion,:fecha_compra,:fecha_funcion,:id_usuario,:cantidad,:monto_total)";           
 
             $parameters["id_funcion"] =  $compra->getIdFuncion();
             $parameters["fecha_compra"] =  $compra->getFechaCompra();
             $parameters["fecha_funcion"] = $compra->getFechaFuncion(); 
             $parameters["id_usuario"] =  $compra->getIdUsuario();
             $parameters["cantidad"] = $compra->getCantidad(); 
+            $parameters["monto_total"] = $compra->getMontoTotal(); 
 
             $this->connection = Connection::GetInstance();
 
@@ -31,7 +32,7 @@
       
         public function GetAll()
         {
-            $query = "SELECT id_funcion,fecha_compra,fecha_funcion,id_usuario,cantidad FROM " . $this->tableName;
+            $query = "SELECT id_funcion,fecha_compra,fecha_funcion,id_usuario,cantidad,monto_total FROM " . $this->tableName;
 
             $this->connection = Connection::GetInstance();
 
@@ -45,6 +46,7 @@
                 $compra->setFechaFuncion($row["fecha_funcion"]);
                 $compra->setIdUsuario($row["id_usuario"]);
                 $compra->setCantidad($row["cantidad"]);
+                $compra->setMontoTotal($row["monto_total"]);
                 array_push($this->comprasList, $compra);
             } 
             

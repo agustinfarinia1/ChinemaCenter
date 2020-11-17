@@ -1,4 +1,5 @@
 <script type="text/javascript" src="wforms.js"></script>
+<a href=""></a>
 
 <!-- Modal -->
 <div class="modal fade" id="userRegistrar" tabindex="-1" aria-labelledby="userRegistrarLabel" aria-hidden="true">
@@ -29,10 +30,11 @@
                     
                         <label for="inputEmail" class="validate-email col-sm-2 col-form-label text-primary">Email:</label>
                         <div class="col-sm-10">
-                        <input type="email" class="form-control" id="inputEmail" autocomplete="off" name="email" placeholder="user@gmail.com"
-                        list="defaultEmails" size="64" maxlength="256" require>
+                        <input type="email" class="form-control" id="inputEmail" autocomplete="off" name="email" placeholder="Ingresa un email valido"
+                        list="defaultEmails" size="64" maxlength="256" value="<?php if(isset($email)) echo $email; ?>" required>
                         <datalist id="defaultEmails">
                         <option value="@outlook.com">
+                        <option value="@gmail.com">
                         <option value="@yahoo.com">
                         <option value="@iCloud.com">
                         <option value="@hotmail.com">
@@ -44,7 +46,7 @@
                     <div class="form-group row">
                         <label for="inputPassword" class="col-sm-2 col-form-label text-primary">Password:</label>
                         <div class="col-sm-10">
-                        <input type="password" class="form-control" id="inputPassword" name="password" autocomplete="off" require>
+                        <input type="password" class="form-control" id="inputPassword" name="password" autocomplete="off" placeholder="Ingrese una contraseña entre 6 y 14 caracteres" require>
                         </div>
                     </div>
                 </div>
@@ -54,7 +56,7 @@
                 </div>         
                 
             </form>
-
+                
         </div>
     </div>
 </div>

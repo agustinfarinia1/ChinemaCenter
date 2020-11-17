@@ -186,7 +186,14 @@
 
         public function Pelicula(){
             require_once(VIEWS_PATH."funcion-pelicula.php");
-        }       
+        }      
+        
+        public function Disponibles(){
+
+            $funcionesList = $this->funcionDAO->getAll();
+            
+            require_once(VIEWS_PATH."statistics.php");
+        }
 
         public function comprobarFechaFuncion($funcion,$dia){
             switch ($dia) {

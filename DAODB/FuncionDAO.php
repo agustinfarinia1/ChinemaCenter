@@ -140,7 +140,19 @@ class FuncionDAO
     public function comprobarDisponibilidad(Funcion $funcion)
     {
         //SELECT * FROM funciones WHERE fecha_inicio <= "2020-11-22" AND fecha_fin >=  "2020-11-10" AND hora_inicio <= "18:00" AND hora_fin >= "17:00" AND (lunes = 1 OR martes = 0 OR miercoles = 1 OR jueves = 0 OR viernes = 1 OR sabado = 0 OR domingo = 0);
-        $query = "SELECT * FROM " . $this->tableName . " WHERE fecha_inicio <= :fechaFin AND fecha_fin >= :fechaInicio AND hora_inicio <= :horaFin AND hora_fin >= :horaInicio AND (lunes = :lunes OR martes = :martes OR miercoles = :miercoles OR jueves = :jueves OR viernes = :viernes OR sabado = :sabado OR domingo = :domingo) AND id_funcion <> :idFuncion AND estado=1";           
+        $query = "SELECT *,cines.nombre as cine_nombre, salas.nombre as sala_nombre FROM " . $this->tableName . "
+        join salas on salas.id_sala = funciones.id_sala 
+        join cines on cines.id_cine = salas.id_cine
+        WHERE 
+            fecha_inicio <= :fechaFin AND 
+            fecha_fin >= :fechaInicio AND 
+            hora_inicio <= :horaFin AND 
+            hora_fin >= :horaInicio AND 
+            (lunes = :lunes OR martes = :martes OR miercoles = :miercoles OR jueves = :jueves OR viernes = :viernes OR sabado = :sabado OR domingo = :domingo) 
+            AND id_funcion <> :idFuncion 
+            AND cines.id_cine= (SELECT id_cine FROM salas WHERE id_sala = :idSala)
+            AND salas.id_sala=:idSala
+            AND funciones.estado=1";           
 
         $parameters["idFuncion"] =  ($funcion->getIdFuncion()) ? $funcion->getIdFuncion() : -1;
         $parameters["fechaInicio"] =  $funcion->getFechaInicio();
@@ -154,6 +166,7 @@ class FuncionDAO
         $parameters["viernes"] =  $funcion->getViernes();
         $parameters["sabado"] = $funcion->getSabado(); 
         $parameters["domingo"] =  $funcion->getDomingo();
+        $parameters["idSala"] =  $funcion->getIdSala();
 
         $this->connection = Connection::GetInstance();
 
@@ -162,7 +175,9 @@ class FuncionDAO
         foreach($results as $row)
         {
             $f = new Funcion();
+            $f->setNombreCine($row["cine_nombre"]);
             $f->setIdSala($row["id_sala"]);
+            $f->setNombreSala($row["sala_nombre"]);
             $f->setFechaInicio($row["fecha_inicio"]);
             $f->setFechaFin($row["fecha_fin"]); 
             $f->setHoraInicio($row["hora_inicio"]);
@@ -212,6 +227,17 @@ class FuncionDAO
         $parameters["sabado"] = $funcion->getSabado(); 
         $parameters["domingo"] =  $funcion->getDomingo();
 
+        $this->connection = Connection::GetInstance();
+
+        $this->connection->ExecuteNonQuery($query, $parameters);
+    }
+
+    public function quitarEstreno($id)
+    {
+        $query = "UPDATE funciones SET estreno = 0 WHERE id_funcion = :idFuncion";
+
+        $parameters["idFuncion"] =  $id;
+       
         $this->connection = Connection::GetInstance();
 
         $this->connection->ExecuteNonQuery($query, $parameters);

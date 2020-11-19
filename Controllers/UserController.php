@@ -91,9 +91,10 @@ class UserController
     public function RecuperarCuenta($email)
     {    // envia un mail al usuario que solicito la recuperacion
         $token= $this->userDAO->generateToken($email);
-        echo "soy token" .$token;
+        //echo "soy token" .$token;
         $url = "localhost". FRONT_ROOT . "User/restablecerPass/".$token;
         $this->enviarMail($email, "Recuperacion de cuenta", "Usted ha solicitado una recuperacion de cuenta, clickee el siguiente link para continuar <br> <a href='".$url."'> Clickee aqui</a>", "Views/img/qr.png"); 
+        include_once(VIEWS_PATH . "home.php");
     }
 
     public function restablecerPass($token)
@@ -114,7 +115,7 @@ class UserController
     // }        
 
 
-    public function enviarMail($email = "",$encabezado = "",$texto ="",$imagen=null){   // Envia un mail con los datos pasados por parametro
+    public function enviarMailOld($email = "",$encabezado = "",$texto ="",$imagen=null){   // Envia un mail con los datos pasados por parametro
         $mail = new PHPMailer(true);
 
         try {
@@ -199,7 +200,9 @@ class UserController
             $mail->Body    = $texto;
 
             $mail->send();
-            include_once(VIEWS_PATH . "home.php");
+            if(!isset($_SESSION["loggedUser"])){
+                include_once(VIEWS_PATH."home.php");
+            }
         } catch (Exception $e) {
             echo "Se produjo un error: {$mail->ErrorInfo}";
 

@@ -91,5 +91,27 @@ class CompraController
             var_dump($op);
             header("Location:" . FRONT_ROOT . 'Funcion/getFuncionPorId/'.$_SESSION["idFuncion"].'/'.$op.'/'.$mensaje );   //REDIRECCIONA DE NUEVO A LA PAGINA ANTERIOR
         }
+
+        public function cantidadesCine(){
+
+            $comprasList = $this->compraDAO->cantidadesCine();
+            include(VIEWS_PATH."compra-cantidades-cine.php");
+        }
+
+        public function cantidadesPelicula(){
+
+            $comprasList = $this->compraDAO->cantidadesPelicula();
+            include(VIEWS_PATH."compra-cantidades-pelicula.php");
+        }
+
+        public function totalesCine($desde= '2020-11-21', $hasta= '2020-12-11'){
+            $comprasList = $this->compraDAO->totalesCine($desde, $hasta);
+            include(VIEWS_PATH."compra-totales-cine.php");
+        }
+
+        public function totalesPelicula($desde= '2020-11-21', $hasta= '2020-12-11'){
+            $comprasList = $this->compraDAO->totalesPelicula($desde, $hasta);
+            include(VIEWS_PATH."compra-totales-pelicula.php");
+        }
     }
 ?>

@@ -21,10 +21,15 @@
         <div class="col-10 offset-1 mt-3">
             <div class="list-group-item list-group-item-action list-group-item-info">
                 <div class="row">
-                    <div class="col-2 text-center">
-                        <h5>Funcion:</h5>
+                    <div class="col-3">
+                            <a 
+                                class="btn btn-primary btn-block"
+                                href="<?php echo FRONT_ROOT."Funcion/quitarEstreno/" . $funcion->getIdFuncion() ?>"
+                            >
+                                Quitar de estrenos
+                            </a>
                     </div>
-                    <div class="col-8 text-center">
+                    <div class="col-7 text-center">
                         <h4>
                             <?php echo $funcion->getNombrePelicula(); ?>
                         </h4>

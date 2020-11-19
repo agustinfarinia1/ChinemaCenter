@@ -123,11 +123,11 @@
         }
 
         public function Remove($id)
-
+        {
             require_once(VIEWS_PATH."validate-session.php");
             $this->funcionDAO->remove($id);
 
-            header('Location:getAll');
+            header("Location:" . FRONT_ROOT . 'Funcion/getAll' );
         }
        
 
@@ -255,5 +255,14 @@
                     break;
             }
         }
+
+        public function quitarEstreno($id){
+
+            $this->funcionDAO->quitarEstreno($id);
+            
+            header("Location:" . FRONT_ROOT . 'Funcion/getAll' );
+        }
+
+
     }
 ?>

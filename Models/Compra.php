@@ -9,6 +9,9 @@
         private $idUsuario;
         private $cantidad;
         private $montoTotal;
+        private $cineNombre;
+        private $salaNombre;
+        private $peliculaNombre;
     
         public function getIdFuncion()
         {
@@ -68,6 +71,36 @@
         public function setMontoTotal($montoTotal)
         {
             $this->montoTotal = $montoTotal;
+        }
+
+        public function getCineNombre()
+        {
+            return $this->cineNombre;
+        }
+
+        public function setCineNombre($cineNombre)
+        {
+            $this->cineNombre = $cineNombre;
+        }
+
+        public function getSalaNombre()
+        {
+            return $this->salaNombre;
+        }
+
+        public function setSalaNombre($salaNombre)
+        {
+            $this->salaNombre = $salaNombre;
+        }
+
+        public function getPeliculaNombre()
+        {
+            return $this->peliculaNombre;
+        }
+
+        public function setPeliculaNombre($peliculaNombre)
+        {
+            $this->peliculaNombre = $peliculaNombre;
         }
     }
 ?>

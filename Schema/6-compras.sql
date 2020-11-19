@@ -1,6 +1,6 @@
 use chinemacenter;
 
-drop table compras;
+DROP table IF EXISTS compras;
 
 CREATE TABLE compras (	
   id_funcion int NOT NULL,

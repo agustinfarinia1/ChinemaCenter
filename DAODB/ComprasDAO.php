@@ -52,5 +52,103 @@
             
             return $this->comprasList;
         }
+
+        public function cantidadesCine(){
+            $query = "SELECT  sum(cantidad) as cantidad, cines.nombre as cine_nombre
+            from compras 
+            join funciones on funciones.id_funcion = compras.id_funcion
+            join salas on funciones.id_sala = salas.id_sala
+            join cines on salas.id_cine = cines.id_cine
+            GROUP BY cines.id_cine";
+
+            $this->connection = Connection::GetInstance();
+
+            $results = $this->connection->Execute($query);
+
+            foreach($results as $row)
+            {
+                $compra = new Compra();
+                $compra->setCineNombre($row["cine_nombre"]);
+                $compra->setCantidad($row["cantidad"]);
+                array_push($this->comprasList, $compra);
+            } 
+            
+            return $this->comprasList;
+        }
+
+        public function cantidadesPelicula(){
+
+            $query = "SELECT SUM(cantidad) as cantidad, peliculas.nombre as pelicula_nombre
+            from compras
+            join funciones on funciones.id_funcion = compras.id_funcion
+            join peliculas on peliculas.id_pelicula = funciones.id_pelicula 
+            GROUP BY funciones.id_funcion";
+
+            $this->connection = Connection::GetInstance();
+
+            $results = $this->connection->Execute($query);
+
+            foreach($results as $row)
+            {
+                $compra = new Compra();
+                $compra->setPeliculaNombre($row["pelicula_nombre"]);
+                $compra->setCantidad($row["cantidad"]);
+                array_push($this->comprasList, $compra);
+            } 
+            
+            return $this->comprasList;            
+        }
+
+        public function totalesCine($desde, $hasta){
+            $query = "SELECT sum(monto_total) as total, cines.nombre, compras.fecha_funcion
+            from compras 
+            join funciones on funciones.id_funcion = compras.id_funcion
+            join salas on funciones.id_sala = salas.id_sala
+            join cines on salas.id_cine = cines.id_cine
+            where  '" . $desde ."' <= fecha_funcion and fecha_funcion <= '" . $hasta ."'
+            GROUP BY cines.id_cine, compras.fecha_funcion
+            order by fecha_funcion";
+
+            $this->connection = Connection::GetInstance();
+
+            $results = $this->connection->Execute($query);
+
+            foreach($results as $row)
+            {
+                $compra = new Compra();
+                $compra->setCineNombre($row["nombre"]);
+                $compra->setCantidad($row["total"]);
+                $compra->setFechaFuncion($row["fecha_funcion"]);
+                array_push($this->comprasList, $compra);
+            } 
+            
+            return $this->comprasList;
+        }
+
+        public function totalesPelicula($desde, $hasta){
+            $query = "SELECT  sum(monto_total) as total, peliculas.nombre AS pelicula_nombre
+            from compras 
+            join funciones on funciones.id_funcion = compras.id_funcion
+            join peliculas on peliculas.id_pelicula = funciones.id_pelicula
+            where  '" . $desde ."' <= fecha_funcion and fecha_funcion <= '" . $hasta ."'
+            GROUP BY funciones.id_pelicula";
+
+            $this->connection = Connection::GetInstance();
+
+            $results = $this->connection->Execute($query);
+
+            foreach($results as $row)
+            {
+                $compra = new Compra();
+                $compra->setPeliculaNombre($row["pelicula_nombre"]);
+                $compra->setCantidad($row["total"]);
+                array_push($this->comprasList, $compra);
+            } 
+            
+            return $this->comprasList;
+        }
+
     }
+
+     
 ?>

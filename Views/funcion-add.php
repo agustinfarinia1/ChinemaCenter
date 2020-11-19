@@ -19,8 +19,8 @@ if(!isset($funcionesList)) $funcionesList=[];
         <div class="col-8 offset-2 mt-3">
             <div class="list-group-item list-group-item-action list-group-item-info">
                 <div class="text-center">
-                    Cine: Nombre | 
-                    Sala: <?php echo $_SESSION["sala"];?> | 
+                    Cine: <?php echo $funcion->getNombreCine();?> | 
+                    Sala: <?php echo $funcion->getNombreSala();?> | 
                     Desde: <?php $desde = date_create_from_format('Y-m-d', $funcion->getFechaInicio()); echo date_format($desde, "d/m/Y"); ?> |
                     Hasta: <?php $hasta = date_create_from_format('Y-m-d', $funcion->getFechaFin()); echo date_format($hasta, "d/m/Y"); ?> |
                     Inicio: <?php $inicio = date_create_from_format('H:i:s', $funcion->getHoraInicio()); echo date_format($inicio, "H:i"); ?> |
@@ -66,8 +66,8 @@ if(!isset($funcionesList)) $funcionesList=[];
     <div style="width: 400px; background-color: #273c75;" class="px-2 py-5 rounded">
         <h2 class="text-center">Nueva Funcion</h2>
 
-        <h4 class="text-center"><?php echo "ID Sala: " .  $_SESSION["sala"]?></h4>
-        <h4 class="text-center"><?php echo "ID pelicula: " .  $_SESSION["idPelicula"]?></h4>   
+        <!-- <h4 class="text-center"><?php echo "ID Sala: " .  $_SESSION["sala"]?></h4> -->
+        <!-- <h4 class="text-center"><?php echo "ID pelicula: " .  $_SESSION["idPelicula"]?></h4>    -->
 
            
         <form action="<?php echo FRONT_ROOT."Funcion/Add" ?>" method="POST" class="mt-4">

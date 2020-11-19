@@ -205,7 +205,7 @@ class UserDAO
 
             throw $ex;
         }
-        var_dump($token);
+        //var_dump($token);
         return $token;
     }
     

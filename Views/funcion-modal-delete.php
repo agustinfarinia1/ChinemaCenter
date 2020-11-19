@@ -26,19 +26,17 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-info" data-dismiss="modal">Cancelar</button>
 
-        <!-- <form action="<?php echo FRONT_ROOT."Funcion/Remove" ?>" method="POST">        
-
-        <form action="<?php echo FRONT_ROOT."Funcion/remove" ?>" method="post">
-
-          <button 
+        <form action="<?php echo FRONT_ROOT."Funcion/Remove" ?>" method="POST"> 
+          <!-- <button 
             type="submit"
             name="id"  
             value="<?php echo $funcion->getIdFuncion();?>"
             class="btn btn-danger"
-          >Eliminar</button>          
-        </form> -->
-        <!-- /form -->
-        <a class="btn btn-danger" href="<?php echo FRONT_ROOT."Funcion/Remove/" . $funcion->getIdFuncion() ?>">Eliminar</a>
+          >Eliminar</button>       -->
+           <a class="btn btn-danger" href="<?php echo FRONT_ROOT."Funcion/Remove/" . $funcion->getIdFuncion() ?>">Eliminar</a>    
+        </form>
+   
+        <!-- <a class="btn btn-danger" href="<?php echo FRONT_ROOT."Funcion/Remove/" . $funcion->getIdFuncion() ?>">Eliminar</a> -->
       </div><!-- modal footer -->
 
     </div><!-- modal content -->

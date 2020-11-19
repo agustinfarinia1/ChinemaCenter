@@ -168,6 +168,25 @@ class UserController
         
     }
 
+    public function updateUser($email ,$name, $lastname, $password)
+    {
+        try {
+            
+            $this->userDAO->updateUser($email ,$name, $lastname, $password);
+
+            require_once(VIEWS_PATH."home.php");
+            
+        } catch (Exception $ex) {
+            throw $ex;
+        }
+        
+    }
+
+    public function verPerfil()
+    {
+            require_once(VIEWS_PATH."perfil-user.php");
+    }
+
 
     public function enviarMail($email = "", $encabezado = "", $texto = "", $imagen = null)
     {   // Envia un mail con los datos pasados por parametro

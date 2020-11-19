@@ -56,17 +56,14 @@
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="dropdownuser" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <?php echo ucfirst($_SESSION["loggedUser"]->getName()) ?> </a>
         <div class="dropdown-menu" aria-labelledby="dropdownuser">
-          <a class="dropdown-item" href='#'>Perfil Usuario</a>
+          <a class="dropdown-item"  href="<?php echo  FRONT_ROOT . "User/verPerfil" ?>" >Perfil Usuario</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="<?php echo  FRONT_ROOT . "User/Logout " ?>">Cerrar Sesion</a>
-          </div>         
+        </div>
       </li>
-      <img src="<?php echo IMG_PATH . "logo.png"?>" style="width: 45px";>
-
-      
+      <img src="<?php echo IMG_PATH . "logo.png" ?>" style="width: 45px" ;>
     </ul>
 
 
   </div>
 </nav>
-

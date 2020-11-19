@@ -158,6 +158,28 @@ class UserDAO
         }
     }
 
+    public function updateUser($email ,$name, $lastname, $password)
+    {
+        $query = "UPDATE users  SET name = :name, lastname = :lastname,  password = :password WHERE email = :email";
+
+        $parameters['email'] = $email;
+        $parameters['name'] = $name;
+        $parameters['lastname'] = $lastname;
+        $parameters['password'] = $password;
+
+
+        try {
+
+            $this->connection = Connection::getInstance();
+
+            $this->connection->ExecuteNonQuery($query, $parameters);
+
+        } catch (\PDOException $ex) {
+
+            throw $ex;
+        }
+    }
+
     public function generatePass()
     {
         $pass = uniqid(mt_rand(0, 9), false);

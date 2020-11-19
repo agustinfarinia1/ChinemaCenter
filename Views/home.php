@@ -7,7 +7,8 @@
 <main class="home-login">
 <div class="login-form">
     <div class="text-center"> 
-        <img src="Views/img/logo.png" style="width: 150px ";>
+        
+        <img src="<?php echo IMG_PATH . "logo.png" ?>" style="width: 150px" ;>
     </div>
     <!-- <h2 class="text-primary">ChinemaCenter</h2> -->
     <form action="<?php echo FRONT_ROOT."User/Login" ?>" method="post">
